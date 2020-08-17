@@ -17,6 +17,7 @@ namespace raul.Models.Db
         public int AwayRaulUserId { get; set; }
         public int AwayTeamId { get; set; }
         public int AwayScore { get; set; }
+        public bool IsOver { get; set; }
 
         public RaulUser AwayRaulUser { get; set; }
         public Team AwayTeam { get; set; }

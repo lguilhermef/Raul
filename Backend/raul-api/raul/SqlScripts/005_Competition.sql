@@ -10,6 +10,7 @@ CREATE TABLE Competition (
 	csvGame nvarchar(max),
 	csvAward nvarchar(50),
 	winnerId int FOREIGN KEY REFERENCES RaulUser(id),
+	edition int NOT NULL
 	);
 
 	-- Questão: é mais performante registar em cada jogo o resultado ou processar os dados relativos à tabela Golo, procurar todos

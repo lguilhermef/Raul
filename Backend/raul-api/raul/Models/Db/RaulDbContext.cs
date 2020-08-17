@@ -91,13 +91,15 @@ namespace raul.Models.Db
 
                 entity.Property(e => e.CsvGame).HasColumnName("csvGame");
 
+                entity.Property(e => e.Edition).HasColumnName("edition");
+
                 entity.Property(e => e.NvcDescription).HasColumnName("nvcDescription");
 
                 entity.Property(e => e.NvcName)
                     .HasColumnName("nvcName")
                     .HasMaxLength(100);
 
-                entity.Property(e => e.NvcRules).HasColumnName("nvcRules");
+                entity.Property(e => e.ValueForSeason).HasColumnName("valueForSeason");
 
                 entity.Property(e => e.WinnerId).HasColumnName("winnerId");
 
@@ -122,6 +124,8 @@ namespace raul.Models.Db
                 entity.Property(e => e.HomeScore).HasColumnName("homeScore");
 
                 entity.Property(e => e.HomeTeamId).HasColumnName("homeTeamId");
+
+                entity.Property(e => e.IsOver).HasColumnName("isOver");
 
                 entity.HasOne(d => d.AwayRaulUser)
                     .WithMany(p => p.GameAwayRaulUser)

@@ -10,6 +10,7 @@ CREATE TABLE Game (
 	awayRaulUserId int NOT NULL FOREIGN KEY REFERENCES RaulUser(id),
 	awayTeamId int NOT NULL FOREIGN KEY REFERENCES Team(id),
 	awayScore  int NOT NULL,
+	isOver bit NOT NULL,
 	);
 
 	-- Questão: é mais performante registar em cada jogo o resultado ou processar os dados relativos à tabela Golo, procurar todos
