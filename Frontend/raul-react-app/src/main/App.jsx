@@ -25,22 +25,22 @@ export default class App extends Component {
     render () {
         if (isLoggedIn) {
                     
-                    return ( 
-                        <HashRouter>
-                            <div className="App">
-                                App
-                            </div>
-                        </HashRouter>
+            return ( 
+                <HashRouter>
+                    <div className="App">
+                        App
+                    </div>
+                </HashRouter>
                     )
-                } else {
+        } else {
 
-                    return (
-                        <div>
-                            <Login clogin={this.login}/>
-                        </div>
-                    )
-            }
+            return (
+                <div>
+                <Login className="login" login={this.login}/>
+                </div>
+            )
         }
+    }
 }
 /*        if (isLoggedIn) {
             
