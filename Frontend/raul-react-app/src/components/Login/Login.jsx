@@ -5,21 +5,26 @@ export default class Login extends Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            
+            isRegister: false,
+            title: "Login"
+        }
+
         this.registerBtn = this.registerBtn.bind(this);
-        this.isRegister = false;
-        this.title = "Login"
     }
 
     registerBtn() {
-        this.isRegister = !this.isRegister;
-        this.title = this.isRegister ? 'Register New User' : 'Login';
-        this.setState({isRegister: this.isRegister, title: this.tile})
+        
+        this.state.title = this.state.isRegister ? 'Register New User' : 'Login';
+        this.setState({isRegister: !this.state.isRegister, title: this.state.title})
     }
 
     render () {
         return (
             <div>
-                <h1>{this.title}</h1>
+                <h1>{this.state.title}</h1>
                 <label>User</label>
                 <input type="text"></input>
                 <label>Password</label>

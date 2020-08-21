@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
 import Login from "../components/Login/Login"
+import Home from "../components/Home/Home"
 
 const loginUrl = "";
 let isLoggedIn = false;
@@ -29,6 +30,7 @@ export default class App extends Component {
                 <HashRouter>
                     <div className="App">
                         App
+                        <Home/>
                     </div>
                 </HashRouter>
                     )
