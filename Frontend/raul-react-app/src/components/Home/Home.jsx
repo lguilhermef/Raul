@@ -22,12 +22,15 @@ export default class Home extends Component {
         this.rComptOptionsSelectorOpts = this.rComptOptionsSelectorOpts.bind(this);
     }
 
+    componentWillMount () {
+        this.getCompetitions();
+    }
+
     getCompetitions () {
 
         axios["get"]("https://localhost:44383/api/competition/comptList")
             .then(resp => {
                 this.setState({comptList: resp.data});
-                
             });
     }
 
@@ -42,8 +45,6 @@ export default class Home extends Component {
         
         return (
         <select name="competitions" id="competitions">
-            <option value="League">League</option>
-            <option value="Cup">Cup</option>
             {this.rComptOptionsSelectorOpts()}
         </select>
         )
@@ -55,8 +56,6 @@ export default class Home extends Component {
             <div>
                 <h1>Home</h1>
                     <h2>Select a Competition :</h2>
-                    <button onClick={this.getCompetitions()}>API</button>
-                    <button onClick={this.rComptOptions()}>R</button>
                     {this.rComptOptions()}
             </div>
         )
