@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using raul.Models.Db;
 using raul.Services;
@@ -27,6 +28,20 @@ namespace RaulWebApi.Controllers
         {
             Competition nextCompetition = competitionService.getNextCompetition();
             return Ok(nextCompetition);
+        }
+
+        [HttpGet("comptList")]
+        public IActionResult getCompetitionList()
+        {
+            List<String> comptList = new List<String>();
+            comptList.Add("League");
+            comptList.Add("Cup");
+            comptList.Add("Super Cup");
+            comptList.Add("League Cup");
+            comptList.Add("Champions League");
+            comptList.Add("Intertoto");
+
+            return Ok(comptList);
         }
     }
 }

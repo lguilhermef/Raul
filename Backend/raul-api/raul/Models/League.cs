@@ -19,7 +19,7 @@ namespace RaulWebApi.Models
 
         public List<Game> generateCalendar ()
         {
-            
+            return getCurrentCalendarFromDb(); //SÓ PARA CALAR ERROS
         }
         
         public void getCurrentCalendar ()
@@ -35,7 +35,8 @@ namespace RaulWebApi.Models
         public List<Game> getCurrentCalendarFromDb()
         {
             String csvCurrentLeagueGames = dbContext.Competition.OrderBy(c => c.Edition).Where(c => c.NvcName == "League").FirstOrDefault().CsvGame;
-            List<Game> currentCalendar = dbContext.Game
+            //List<Game> currentCalendar = dbContext.Game
+            return new List<Game>();
         }
 
         public bool isCurrentLeagueOver()

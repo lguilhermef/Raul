@@ -21,6 +21,15 @@ namespace RaulWebApi
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //Enable CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials().Build();
+                });
+            });
+
             services.AddDbContext<RaulDbContext>((options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Raul;Integrated Security=SSPI;")));
         }
 
@@ -35,6 +44,8 @@ namespace RaulWebApi
             {
                 app.UseHsts();
             }
+
+            app.UseCors("EnableCORS");
 
             app.UseHttpsRedirection();
             app.UseMvc();
