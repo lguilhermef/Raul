@@ -5,13 +5,17 @@ import axios from 'axios'
 
 const apiComptLstURL = "https://localhost:44383/api/competition/comptList";
 
+const initialState = {
+    comptList: [],
+    currentCompetiton: "Choose One"
+};
+
 export default class Home extends Component {
+
+    state = {...initialState}
 
     constructor(props) {
         super(props)
-
-        this.currentCompetiton = "Unknown"
-        this.comptList = [];
 
         this.getCompetitions = this.getCompetitions.bind(this);
         this.rComptOptions = this.rComptOptions.bind(this);
@@ -20,25 +24,22 @@ export default class Home extends Component {
 
     getCompetitions () {
 
-        axios["get"](apiComptLstURL)
+        axios["get"]("https://localhost:44383/api/competition/comptList")
             .then(resp => {
-                this.comptList = resp.data;
+                this.setState({comptList: resp.data});
+                
             });
     }
 
     rComptOptionsSelectorOpts () {
         let key = 1;
-        const cOptions = this.comptList.map((c) =>
+        return this.state.comptList.map((c) =>
             <option key={key++} value={c}>{c}</option>
-        );
-        return cOptions;
+            )
     }
 
     rComptOptions () {
-
-        this.getCompetitions();
         
-
         return (
         <select name="competitions" id="competitions">
             <option value="League">League</option>
@@ -46,7 +47,6 @@ export default class Home extends Component {
             {this.rComptOptionsSelectorOpts()}
         </select>
         )
-        this.setState();
     }
 
 
@@ -55,7 +55,8 @@ export default class Home extends Component {
             <div>
                 <h1>Home</h1>
                     <h2>Select a Competition :</h2>
-                    <button onClick={this.rComptOptions}>API</button>
+                    <button onClick={this.getCompetitions()}>API</button>
+                    <button onClick={this.rComptOptions()}>R</button>
                     {this.rComptOptions()}
             </div>
         )
