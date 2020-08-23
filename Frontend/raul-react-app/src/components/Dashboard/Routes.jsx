@@ -9,6 +9,6 @@ export default props =>
     <Switch>
         <Route path="/calendar" component={Calendar} />
         <Route path="/nextgame" component={NextGame}/>
-        <Route path0="/classification" component={Classification}/>
+        <Route path="/classification" component={Classification}/>
         <Redirect from='*' to='/calendar' />
     </Switch>
