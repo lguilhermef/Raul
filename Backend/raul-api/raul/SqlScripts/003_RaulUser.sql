@@ -3,8 +3,7 @@ GO
 
 CREATE TABLE RaulUSer (
 
-	id int NOT NULL IDENTITY PRIMARY KEY,
-	nvcUsername nvarchar(100) NOT NULL UNIQUE,
+	nvcUsername nvarchar(100) PRIMARY KEY,
     rlFavteamId int FOREIGN KEY REFERENCES Team(id),
     favTeamId int FOREIGN KEY REFERENCES Team(id),
     rivalTeamId int FOREIGN KEY REFERENCES Team(id),

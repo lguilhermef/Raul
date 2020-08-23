@@ -3,7 +3,6 @@ GO
 
 CREATE TABLE Player (
 
-	id int NOT NULL IDENTITY PRIMARY KEY,
-	nvcFullName nvarchar(100) NOT NULL UNIQUE,
+	nvcFullName nvarchar(100) PRIMARY KEY,
 	teamId int FOREIGN KEY REFERENCES Team(id)
 	);

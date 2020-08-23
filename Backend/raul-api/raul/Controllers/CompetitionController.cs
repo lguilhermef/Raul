@@ -39,9 +39,17 @@ namespace RaulWebApi.Controllers
             comptList.Add("Super Cup");
             comptList.Add("League Cup");
             comptList.Add("Champions League");
-            comptList.Add("Intertoto");
+            comptList.Add("Intercontinental");
 
             return Ok(comptList);
+        }
+
+        [HttpGet("calendar")]
+        public IActionResult getCalendar ()
+        {
+            Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
+            List<Game> calendar = competitionService.getCalendar(competition);
+            return Ok(calendar);
         }
     }
 }

@@ -26,5 +26,11 @@ namespace raul.Services
             Competition newLeague = new Competition();
             return newLeague;
         }
+
+        public List<Game> getCalendar (Competition competition)
+        {
+            List<Game> calendar = dbContext.Game.ToList();
+            return calendar;
+        }
     }
 }
