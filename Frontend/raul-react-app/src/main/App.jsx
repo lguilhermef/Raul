@@ -4,7 +4,6 @@ import 'font-awesome/css/font-awesome.min.css'
 import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
 import Login from "../components/Login/Login"
-import Home from "../components/Home/Home"
 import Dashboard from "../components/Dashboard/Dashboard"
 
 const loginUrl = "";
@@ -44,20 +43,3 @@ export default class App extends Component {
         }
     }
 }
-/*        if (isLoggedIn) {
-            
-            return ( 
-                <HashRouter>
-                    <div className="App">
-                        App
-                    </div>
-                </HashRouter>
-            )
-        } else {
-
-            return (
-                <div>
-                    <Login login={this.login}/>
-                </div>
-            )
-        }*/
