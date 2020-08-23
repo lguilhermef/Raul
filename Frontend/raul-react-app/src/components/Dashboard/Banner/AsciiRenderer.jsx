@@ -1,56 +1,18 @@
 import React from 'react'
-
-const leagueAscii = "\n" +
-" ██████╗ █████╗ ███╗   ███╗██████╗ ███████╗ ██████╗ ███╗   ██╗ █████╗ ████████╗ ██████╗ \n" +
-"██╔════╝██╔══██╗████╗ ████║██╔══██╗██╔════╝██╔═══██╗████╗  ██║██╔══██╗╚══██╔══╝██╔═══██╗\n" +
-"██║     ███████║██╔████╔██║██████╔╝█████╗  ██║   ██║██╔██╗ ██║███████║   ██║   ██║   ██║\n" +
-"██║     ██╔══██║██║╚██╔╝██║██╔═══╝ ██╔══╝  ██║   ██║██║╚██╗██║██╔══██║   ██║   ██║   ██║\n" +
-"╚██████╗██║  ██║██║ ╚═╝ ██║██║     ███████╗╚██████╔╝██║ ╚████║██║  ██║   ██║   ╚██████╔╝\n" +
-" ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ \n" +
-"                                                                                        \n";
-
-const cupAscii = "\n" +        
-"████████╗ █████╗  ██████╗ █████╗ \n" +
-"╚══██╔══╝██╔══██╗██╔════╝██╔══██╗\n" +
-"   ██║   ███████║██║     ███████║\n" +
-"   ██║   ██╔══██║██║     ██╔══██║\n" +
-"   ██║   ██║  ██║╚██████╗██║  ██║\n" +
-"   ╚═╝   ╚═╝  ╚═╝ ╚═██══╝╚═╝  ╚═╝\n" +
-"                                 \n";
-
-function asciiRender (competition) {
-    return (
-        <div>
-            {competition}
-        </div>
-    )
-}
-
-
-function getAscii (competition) {
-
-    switch (competition) {
-
-        case "League":
-            return asciiRender(leagueAscii);
-
-        case "Cup":
-            return asciiRender(cupAscii);
-    }
-}
+import AsciiBannerBank from './AsciiBannerBank';
 
 function renderer (competition) {
 
-    let bannerAscii = getAscii(competition)
+    let asciBannerBank = new AsciiBannerBank().getAsciiBanner(competition);
 
     return (
-        <div>
-            {bannerAscii}
-        </div>
+        <pre>
+            {asciBannerBank}
+        </pre>
     )
 }
 
 export default props =>
-    <pre>
+    <div>
         {renderer(props.currCompetition)}
-    </pre>
+    </div>
