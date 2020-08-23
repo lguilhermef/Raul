@@ -1,0 +1,14 @@
+.oldBtn {
+    margin-left: 5px;
+    transition: 1s;
+    border-radius: 5px;
+}
+
+.oldBtn:hover {
+    background-color: rgb(37, 33, 24);
+}
+
+.header {
+    margin-left: 10px;
+    align-content: center;
+}

@@ -5,9 +5,10 @@ import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
 import Login from "../components/Login/Login"
 import Home from "../components/Home/Home"
+import Dashboard from "../components/Dashboard/Dashboard"
 
 const loginUrl = "";
-let isLoggedIn = false;
+let isLoggedIn = true;
 
 export default class App extends Component {
 
@@ -29,7 +30,7 @@ export default class App extends Component {
             return ( 
                 <HashRouter>
                     <div className="App">
-                        <Home className="home"/>
+                        <Dashboard className="dashboard"/>
                     </div>
                 </HashRouter>
                     )

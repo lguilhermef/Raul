@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Home.css'
 import League from '../Competitions/League/League'
 import Cup from '../Competitions/Cup/Cup'
+import Header from "./Header/Header"
 
 import axios from 'axios'
 
