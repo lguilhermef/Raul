@@ -7,7 +7,7 @@ import Classification from './Classification/Classification'
 
 export default props => 
     <Switch>
-        <Route path="/calendar" component={Calendar} />
+        <Route path="/calendar" component={() => <Calendar currCompetition={props.currCompetition}/>}/>
         <Route path="/nextgame" component={NextGame}/>
         <Route path="/classification" component={Classification}/>
         <Redirect from='*' to='/calendar' />
