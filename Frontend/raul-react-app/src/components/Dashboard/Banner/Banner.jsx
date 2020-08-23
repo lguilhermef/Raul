@@ -1,7 +1,8 @@
 import React from 'react'
 import './Banner.css'
+import AsciiRenderer from './AsciiRenderer'
 
 export default props =>
     <div>
-        {props.currCompetition}
+        <AsciiRenderer currCompetition={props.currCompetition}/>
     </div>
