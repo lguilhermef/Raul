@@ -1,11 +1,19 @@
 import React from 'react'
 import './Header.css'
+
+import { Link } from 'react-router-dom'
 import ComptSelector from './ComptSelector/ComptSelector'
 
 export default props =>
     <div className="header">
         <ComptSelector setCompetition={props.setCompetition} className="compts"/>
-        <button className="oldBtn" onClick={e => this.defineAction("cal")}>Calendar</button>
-        <button className="oldBtn" onClick={e => this.defineAction("ngame")}>Next Game</button>
-        <button className="oldBtn" onClick={e => this.defineAction("class")}>Classification</button>
+        <Link to="/calendar">
+            <button className="oldBtn">Calendar</button>
+        </Link>
+        <Link to="/nextgame">
+            <button className="oldBtn">Next Game</button>
+        </Link>
+        <Link to="/classification">
+            <button className="oldBtn">Classification</button>
+        </Link>
     </div>

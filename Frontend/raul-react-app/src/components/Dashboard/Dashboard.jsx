@@ -1,9 +1,11 @@
 import React from 'react'
+import { Component } from 'react'
 import './Dashboard.css'
 
 import Header from './Header/Header'
 import Banner from './Banner/Banner'
-import { Component } from 'react'
+import Routes from './Routes'
+
 
 export default class Dashboard extends Component {
 
@@ -27,6 +29,7 @@ export default class Dashboard extends Component {
             <div>
                 <Header className="header" setCompetition={this.setCompetition}/>
                 <Banner currCompetition={this.state.competition}/>
+                <Routes/>
             </div>
         )
     }
