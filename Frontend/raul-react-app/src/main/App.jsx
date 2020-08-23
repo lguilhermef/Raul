@@ -29,8 +29,7 @@ export default class App extends Component {
             return ( 
                 <HashRouter>
                     <div className="App">
-                        App
-                        <Home/>
+                        <Home className="home"/>
                     </div>
                 </HashRouter>
                     )

@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import './Home.css'
+import League from '../Competitions/League/League'
+import Cup from '../Competitions/Cup/Cup'
 
 import axios from 'axios'
 
-const apiComptLstURL = "https://localhost:44383/api/competition/comptList";
+const apiComptLstURL = "https://localhost:44384/api/competition/comptList";
 
 const initialState = {
     comptList: [],
-    currentCompetiton: "Choose One"
+    currentCompetiton: "League",
+    action: "none"
 };
 
 export default class Home extends Component {
@@ -20,15 +23,26 @@ export default class Home extends Component {
         this.getCompetitions = this.getCompetitions.bind(this);
         this.rComptOptions = this.rComptOptions.bind(this);
         this.rComptOptionsSelectorOpts = this.rComptOptionsSelectorOpts.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.rCompetitionInfo = this.rCompetitionInfo.bind(this);
+        this.defineAction = this.defineAction.bind(this);
     }
 
     componentWillMount () {
         this.getCompetitions();
     }
 
+    handleChange (event) {
+        this.setState({currentCompetiton: event.target.value})
+    }
+
+    defineAction (action) {
+        this.setState({action: action})
+    }
+
     getCompetitions () {
 
-        axios["get"]("https://localhost:44383/api/competition/comptList")
+        axios["get"](apiComptLstURL)
             .then(resp => {
                 this.setState({comptList: resp.data});
             });
@@ -44,19 +58,47 @@ export default class Home extends Component {
     rComptOptions () {
         
         return (
-        <select name="competitions" id="competitions">
+        <select name="competitions" id="competitions" value={this.state.currentCompetiton} onChange={e => this.handleChange(e)}>
             {this.rComptOptionsSelectorOpts()}
         </select>
         )
     }
 
+    rCompetitionInfo () {
+        switch (this.state.currentCompetiton) {
+            
+            case "League":
+                return (
+                    <div>
+                        <League action={this.state.action}/>
+                    </div>
+                )
+            
+            case "Cup":
+                return (
+                    <div>
+                        <Cup action={this.state.action}/>
+                    </div>
+                )
+            
+            default:
+                    return (
+                        <div>
+                            Esta competição ainda está a ser preparada, caros senhores.
+                        </div>
+                    )
+        }
+    }
+
 
     render () {
         return (
-            <div>
-                <h1>Home</h1>
-                    <h2>Select a Competition :</h2>
+            <div className="homee">
                     {this.rComptOptions()}
+                    <button className="oldBtn" onClick={e => this.defineAction("cal")}>Calendar</button>
+                    <button className="oldBtn" onClick={e => this.defineAction("ngame")}>Next Game</button>
+                    <button className="oldBtn" onClick={e => this.defineAction("class")}>Classification</button>
+                    {this.rCompetitionInfo()}
             </div>
         )
     }

@@ -1,6 +1,6 @@
-body {
-    background: linear-gradient(to right, rgb(85, 63, 15), rgb(0, 0, 0));
-    color: rgb(194, 10, 10);
+* {
+    background-color: black;
+    color: rgb(255, 255, 255);
 }
 
 .cbutton {

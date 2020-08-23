@@ -1,0 +1,12 @@
+.homee {
+    
+}
+
+.oldBtn {
+    transition: 1s;
+    border-radius: 5px;
+}
+
+.oldBtn:hover {
+    background-color: rgb(37, 33, 24);
+}
