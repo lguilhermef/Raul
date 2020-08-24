@@ -3,7 +3,7 @@ import AsciiBannerBank from './AsciiBannerBank';
 
 function renderer (competition) {
 
-    let asciBannerBank = new AsciiBannerBank().getAsciiBanner(competition);
+    const asciBannerBank = new AsciiBannerBank().getAsciiBanner(competition);
 
     return (
         <pre>

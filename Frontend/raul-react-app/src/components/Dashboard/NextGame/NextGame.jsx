@@ -3,5 +3,5 @@ import './NextGame.css'
 
 export default props =>
     <div>
-        NextGame
+        Teste em directo
     </div>
