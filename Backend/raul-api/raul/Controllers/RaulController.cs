@@ -24,7 +24,7 @@ namespace RaulWebApi.Controllers
         public void test()
         {
             Goal goal = new Goal();
-            goal.AssisId = 1;
+            goal.AssistId = 1;
 
             var a = db.Add(goal);
             db.SaveChanges();

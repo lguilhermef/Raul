@@ -12,9 +12,9 @@ namespace RaulWebApi.Models
 
         public League ()
         {
-            NvcName = "League";
+           /* NvcName = "League";
             NvcDescription = "The most important competition of the Season.";
-            RulesId = 1;
+            RulesId = 1; */
         }
 
         public List<Game> generateCalendar ()
@@ -34,14 +34,14 @@ namespace RaulWebApi.Models
 
         public List<Game> getCurrentCalendarFromDb()
         {
-            String csvCurrentLeagueGames = dbContext.Competition.OrderBy(c => c.Edition).Where(c => c.NvcName == "League").FirstOrDefault().CsvGame;
+            //String csvCurrentLeagueGames = dbContext.Competition.OrderBy(c => c.Edition).Where(c => c.ComptName == "League").FirstOrDefault();
             //List<Game> currentCalendar = dbContext.Game
             return new List<Game>();
         }
 
         public bool isCurrentLeagueOver()
         {
-            Competition currentLeague = dbContext.Competition.OrderBy(c => c.Edition).Where(c=> c.NvcName == "League").FirstOrDefault();
+            Competition currentLeague = dbContext.Competition.OrderBy(c => c.Edition).Where(c=> c.ComptName == "League").FirstOrDefault();
 
             if (currentLeague == null)
             {

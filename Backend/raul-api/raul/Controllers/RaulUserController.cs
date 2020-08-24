@@ -23,7 +23,7 @@ namespace RaulWebApi.Controllers
         public ActionResult test ()
         {
             RaulUser user = new RaulUser();
-            user.NvcUsername = "TESTE-NOVO";
+            user.Username = "TESTE-NOVO";
             db.Add(user);
             db.SaveChanges();
 

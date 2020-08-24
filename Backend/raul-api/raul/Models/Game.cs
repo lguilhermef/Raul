@@ -11,10 +11,7 @@ namespace raul.Models.Db
 
         public Game (int homeRaulUserId, Team homeTeam, int awayRaulUserId, Team awayTeam)
         {
-            HomeRaulUserId = homeRaulUserId;
-            HomeTeam = homeTeam;
-            AwayRaulUserId = awayRaulUserId;
-            AwayTeam = awayTeam;
+
         }
     }
 }

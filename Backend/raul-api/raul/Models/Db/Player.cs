@@ -7,17 +7,17 @@ namespace raul.Models.Db
     {
         public Player()
         {
-            GoalAssis = new HashSet<Goal>();
+            GoalAssist = new HashSet<Goal>();
             GoalScorer = new HashSet<Goal>();
             RaulUser = new HashSet<RaulUser>();
         }
 
         public int Id { get; set; }
-        public string NvcFullName { get; set; }
-        public int? TeamId { get; set; }
+        public string FullName { get; set; }
+        public string TeamName { get; set; }
 
-        public Team Team { get; set; }
-        public ICollection<Goal> GoalAssis { get; set; }
+        public Team TeamNameNavigation { get; set; }
+        public ICollection<Goal> GoalAssist { get; set; }
         public ICollection<Goal> GoalScorer { get; set; }
         public ICollection<RaulUser> RaulUser { get; set; }
     }

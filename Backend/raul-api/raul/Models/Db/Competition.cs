@@ -5,16 +5,22 @@ namespace raul.Models.Db
 {
     public partial class Competition
     {
-        public int Id { get; set; }
-        public string NvcName { get; set; }
-        public string NvcDescription { get; set; }
-        public int RulesId { get; set; }
-        public string CsvGame { get; set; }
-        public string CsvAward { get; set; }
-        public int? WinnerId { get; set; }
-        public int Edition { get; set; }
-        public int ValueForSeason { get; set; }
+        public Competition()
+        {
+            Game = new HashSet<Game>();
+        }
 
+        public int UniverseId { get; set; }
+        public string ComptName { get; set; }
+        public string Alias { get; set; }
+        public string History { get; set; }
+        public string Rules { get; set; }
+        public string WinnerId { get; set; }
+        public int Edition { get; set; }
+        public bool IsOfficialCompetition { get; set; }
+
+        public Universe Universe { get; set; }
         public RaulUser Winner { get; set; }
+        public ICollection<Game> Game { get; set; }
     }
 }
