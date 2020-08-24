@@ -3,11 +3,11 @@ GO
 
 CREATE TABLE RaulUSer (
 
-	nvcUsername nvarchar(100) PRIMARY KEY,
-    rlFavteamId int FOREIGN KEY REFERENCES Team(id),
-    favTeamId int FOREIGN KEY REFERENCES Team(id),
-    rivalTeamId int FOREIGN KEY REFERENCES Team(id),
-    mediaFavTeamId int FOREIGN KEY REFERENCES Team(id),
-    mediaRivalTeamId int FOREIGN KEY REFERENCES Team(id),
-    rlFavPlayerId int FOREIGN KEY REFERENCES Player(id)
+	username nvarchar(100) PRIMARY KEY,
+    rl_fav_team_id int FOREIGN KEY REFERENCES Team(official_name),
+    pes_fav_team_id int FOREIGN KEY REFERENCES Team(official_name),
+    rival_team_id int FOREIGN KEY REFERENCES Team(official_name),
+    media_fav_team_id int FOREIGN KEY REFERENCES Team(official_name),
+    media_rival_team_id int FOREIGN KEY REFERENCES Team(official_name),
+    fav_player_id int FOREIGN KEY REFERENCES Player(full_name)
 	);

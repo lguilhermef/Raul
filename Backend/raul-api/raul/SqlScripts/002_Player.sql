@@ -3,6 +3,6 @@ GO
 
 CREATE TABLE Player (
 
-	nvcFullName nvarchar(100) PRIMARY KEY,
-	teamId int FOREIGN KEY REFERENCES Team(id)
+	full_name nvarchar(100) PRIMARY KEY,
+	team_id nvarchar(100) FOREIGN KEY REFERENCES Team(official_name)
 	);
