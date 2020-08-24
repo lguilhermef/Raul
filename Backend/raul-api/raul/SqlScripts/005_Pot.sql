@@ -3,9 +3,10 @@ GO
 
 CREATE TABLE Pot (
 
-	id int NOT NULL IDENTITY PRIMARY KEY,
-	nvcName nvarchar(100),
-	nvcDescription nvarchar(100),
-	nvcMediaDescription nvarchar(100),
-	csvTeamId nvarchar(100)
+	pot_name nvarchar(100),
+	universe_id int FOREIGN KEY REFERENCES Universe(id),
+	pot_description nvarchar(100),
+	media_description nvarchar(100),
+	is_official_pot bit
+	PRIMARY KEY (pot_name, universe_id)
 	);

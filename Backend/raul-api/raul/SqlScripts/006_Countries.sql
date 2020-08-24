@@ -3,6 +3,5 @@ GO
 
 CREATE TABLE Countries (
 
-	id int NOT NULL IDENTITY PRIMARY KEY,
-	nvcName nvarchar (50),
+	country_name nvarchar(50) PRIMARY KEY NOT NULL UNIQUE,
 	);

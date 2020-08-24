@@ -3,9 +3,9 @@ GO
 
 CREATE TABLE Award (
 
-	id int NOT NULL IDENTITY PRIMARY KEY,
-	nvcName nvarchar(100),
-	nvcDescription nvarchar(100),
-	nvcMediaDescription nvarchar(100),
-	raulUserWinnerId int,
+	award_name nvarchar(100) PRIMARY KEY,
+	official_description nvarchar(100),
+	media_description nvarchar(100),
+	winner_raul_u_username int FOREIGN KEY REFERENCES RaulUser(username),
+	is_official_award bit NOT NULL,
 	);

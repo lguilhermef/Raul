@@ -4,11 +4,11 @@ GO
 CREATE TABLE Goal (
 
 	id int NOT NULL IDENTITY PRIMARY KEY,
-	raulUserId int NOT NULL FOREIGN KEY REFERENCES RaulUser(id),
-	teamId int NOT NULL FOREIGN KEY REFERENCES Team(id),
-	scorerId int NOT NULL FOREIGN KEY REFERENCES Player(id),
-	assisId int NOT NULL FOREIGN KEY REFERENCES Player(id),
-	gameId int NOT NULL FOREIGN KEY REFERENCES Game(id),
-	intGamePart int NOT NULL,
-	intGoalTime int NOT NULL
+	scorer_raul_u_username int NOT NULL FOREIGN KEY REFERENCES RaulUser(username),
+	team_id int NOT NULL FOREIGN KEY REFERENCES Team(id),
+	scorer_id int NOT NULL FOREIGN KEY REFERENCES Player(id),
+	assist_id int NOT NULL FOREIGN KEY REFERENCES Player(id),
+	game_id int NOT NULL FOREIGN KEY REFERENCES Game(id),
+	game_part int NOT NULL,
+	goal_time int NOT NULL
 	);
