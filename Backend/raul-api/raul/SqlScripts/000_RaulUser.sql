@@ -1,7 +1,7 @@
 USE Raul
 GO
 
-CREATE TABLE RaulUSer (
+CREATE TABLE RaulUser (
 
 	username nvarchar(100) PRIMARY KEY,
     rl_fav_team_id int FOREIGN KEY REFERENCES Team(official_name),
