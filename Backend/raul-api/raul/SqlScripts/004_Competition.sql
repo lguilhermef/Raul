@@ -8,7 +8,7 @@ CREATE TABLE Competition (
 	alias nvarchar(100),
 	history nvarchar(max),
 	rules nvarchar (max),
-	winner_id int FOREIGN KEY REFERENCES RaulUser(username),
+	winner_id nvarchar(100) FOREIGN KEY REFERENCES RaulUser(username),
 	edition int NOT NULL,
 	is_official_competition bit NOT NULL,
 	PRIMARY KEY (universe_id, compt_name, edition)

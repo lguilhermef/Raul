@@ -4,10 +4,12 @@ GO
 CREATE TABLE Season (
 
 	season_number int NOT NULL,
-	age_id int NOT NULL FOREIGN KEY REFERENCES Age(id),
+	age int NOT NULL,
+	universe_id int NOT NULL ,
 	pes_version int NOT NULL,
 	season_history nvarchar(max),
 	media_description nvarchar(max),
-	player_of_the_year_id nvarchar (100) FOREIGN KEY REFERENCES RaulUser(username)
-	PRIMARY KEY (season_number, age_id)
+	player_of_the_year_id nvarchar (100) FOREIGN KEY REFERENCES RaulUser(username),
+	FOREIGN KEY (age, universe_id) REFERENCES Age(age, universe_id),
+	PRIMARY KEY (season_number, age)
 	);
