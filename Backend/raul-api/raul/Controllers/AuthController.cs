@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using raul.Models.Db;
 using raul.Services;
 using RaulWebApi.Controllers;
@@ -14,11 +16,18 @@ namespace raul.Controllers
     [ApiController]
     public class AuthController : RaulController
     {
-        private AuthService authService;
 
-        public AuthController (RaulDbContext dbContext) : base (dbContext)
+        public AuthController ()
         {
-            this.authService = new AuthService();
+            setServiceImplementation(new AuthService());
+        }
+
+
+        [HttpPost("login")]
+        public IActionResult login ([FromBody] JObject authData)
+        {
+            var json = JsonConvert.SerializeObject(authData);
+            return BadRequest();
         }
     }
 }

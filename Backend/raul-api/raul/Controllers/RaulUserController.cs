@@ -14,7 +14,7 @@ namespace RaulWebApi.Controllers
     public class RaulUserController : RaulController
     {
 
-        public RaulUserController (RaulDbContext dbContext) : base (dbContext)
+        public RaulUserController ()
         {
         }
 
@@ -22,18 +22,7 @@ namespace RaulWebApi.Controllers
         [HttpGet]
         public ActionResult test ()
         {
-            RaulUser user = new RaulUser();
-            user.Username = "TESTE-NOVO";
-            db.Add(user);
-            db.SaveChanges();
-
-           // Goal goal = new Goal();
-           // goal.IntGoalTime = 500; //ISTO FUNCIONA
-
-            //db.Add(goal);
-            //db.SaveChanges();
-
-            return BadRequest();
+            return Ok();
         }
     }
 }

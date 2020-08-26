@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace raul.Services
 {
-    public class CompetitionService
+    public class CompetitionService : GenericService
     {
-        private RaulDbContext dbContext;
-
-        public CompetitionService(RaulDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
 
         public Competition getNextCompetition()
         {
-            Competition nextCompetition = this.dbContext.Competition.FirstOrDefault();
+            Competition nextCompetition = dbContext.Competition.FirstOrDefault();
             return nextCompetition;
         }
 

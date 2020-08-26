@@ -1,4 +1,5 @@
 ﻿using raul.Models.Db;
+using raul.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace RaulWebApi.Services
 {
-    public partial class GameService
+    public partial class GameService : GenericService
     {
-        private RaulDbContext dbContext;
-        
-        public GameService (RaulDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
 
         public Game getNextGame (Competition competition)
         {

@@ -18,9 +18,9 @@ namespace RaulWebApi.Controllers
 
         public CompetitionService competitionService;
 
-        public CompetitionController(RaulDbContext dbContext) : base(dbContext)
+        public CompetitionController()
         {
-            this.competitionService = new CompetitionService(dbContext);
+            setServiceImplementation(new CompetitionService());
         }
 
         [HttpGet("nextCompetition")]

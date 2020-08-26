@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using raul.Models.Db;
+using raul.Services;
 
 namespace RaulWebApi.Controllers
 {
@@ -13,21 +14,11 @@ namespace RaulWebApi.Controllers
     [ApiController]
     public abstract class RaulController : ControllerBase
     {
+        public GenericService serviceImpl { get; set; }
 
-        public DbContext db { get; set; }
-
-        public RaulController (DbContext context)
+        public void setServiceImplementation (GenericService serviceImpl)
         {
-            this.db = context;
-        }
-
-        public void test()
-        {
-            Goal goal = new Goal();
-            goal.AssistId = 1;
-
-            var a = db.Add(goal);
-            db.SaveChanges();
+            this.serviceImpl = serviceImpl;
         }
     }
 }

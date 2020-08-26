@@ -15,9 +15,9 @@ namespace RaulWebApi.Controllers
 
         public UniverseService universeService;
 
-        public UniverseController(RaulDbContext context) : base (context)
+        public UniverseController()
         {
-            this.universeService = new UniverseService();
+
         }
     }
 }

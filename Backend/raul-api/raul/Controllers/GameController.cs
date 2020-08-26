@@ -16,9 +16,9 @@ namespace RaulWebApi.Controllers
 
         public GameService gameService;
 
-        public GameController (RaulDbContext dbContext) : base (dbContext)
+        public GameController ()
         {
-            this.gameService = new GameService(dbContext);
+            setServiceImplementation(new GameService());
         }
 
         [HttpGet("nextGame")]
