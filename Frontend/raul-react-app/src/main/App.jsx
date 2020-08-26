@@ -15,6 +15,13 @@ export default class App extends Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+
+            username: "",
+            selectedUniverse: 0,
+        }
+
         this.login = this.login.bind(this);
     }
 
