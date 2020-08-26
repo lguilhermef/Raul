@@ -12,7 +12,15 @@ namespace raul.Services
 
         public bool login (string username, string password)
         {
-            //Check if user exists, if so, does pass match?
+            RaulUser persistedUser = dbContext.RaulUser.Where(u => u.Username == username).FirstOrDefault();
+
+            if (persistedUser == null)
+            {
+                return false;
+            }
+
+            string hashedPass = getProcessedPassword(password);
+
             return false;
         }
 

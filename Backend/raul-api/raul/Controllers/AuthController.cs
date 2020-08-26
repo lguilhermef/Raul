@@ -24,9 +24,16 @@ namespace raul.Controllers
 
 
         [HttpPost("login")]
-        public IActionResult login ([FromBody] JObject authData)
+        public IActionResult login ([FromBody] RaulUser user)
         {
-            var json = JsonConvert.SerializeObject(authData);
+            RaulUser raulUser = user;
+            return BadRequest();
+        }
+
+        [HttpPost("register")]
+        public IActionResult register([FromBody] JObject newUser)
+        {
+            var json = JsonConvert.SerializeObject(newUser);
             return BadRequest();
         }
     }
