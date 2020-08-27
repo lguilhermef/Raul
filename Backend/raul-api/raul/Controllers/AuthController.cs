@@ -25,16 +25,16 @@ namespace raul.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult login ([FromBody] RaulUser user)
+        public IActionResult login ([FromBody] RaulUser userData)
         {
-            bool isLoginSuccessful = authService.login(user.Username, user.Password);
+            RaulUser loggedUser = authService.login(userData.Username, userData.Password);
             
-            if (!isLoginSuccessful)
+            if (loggedUser == null)
             {
-                return BadRequest("LOL");
+                return BadRequest();
             }
-
-            return Ok();
+            loggedUser.Password = ""; //FIX THIS WITH DTO?
+            return Ok(loggedUser);
         }
 
         [HttpPost("register")]

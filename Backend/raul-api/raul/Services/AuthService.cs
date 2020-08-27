@@ -20,12 +20,17 @@ namespace raul.Services
             this._authRepository = new AuthRepository();
         }
 
-        public bool login (string username, string password)
+        public RaulUser login (string username, string password)
         {
             RaulUser user = _authRepository.getUser(username);
-            bool isPassCorret = verify(password, user.Password);
+            bool isPassCorrect = false;
+            
+            if (user != null)
+            {
+                isPassCorrect = verify(password, user.Password);
+            }
 
-            return isPassCorret;
+            return isPassCorrect ? user : null;
         }
 
         public bool register (string username, string password)
