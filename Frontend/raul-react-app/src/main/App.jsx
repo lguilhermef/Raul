@@ -25,9 +25,12 @@ export default class App extends Component {
         this.login = this.login.bind(this);
     }
 
-    login () {
-        isLoggedIn = true;
-        this.setState({isLoggedIn});
+    login (user) {
+
+        if (user != null) {
+            isLoggedIn = true;
+            this.setState({isLoggedIn});
+        }
     }
 
     render () {

@@ -49,6 +49,9 @@ export default class Login extends Component {
             data: this.state.loginData
           }).then(resp => {
               this.state.loggedUser = resp.data
+              if (this.state.loggedUser.username != null) {
+                this.props.login(this.state.loggedUser)
+              }
           })
     }
 
@@ -71,12 +74,12 @@ export default class Login extends Component {
                 onChange={e => this.updateField(e)}></input>
 
                 <label>Password</label>
-                <input type="text" className="form-control"
+                <input type="password" className="form-control"
                 name="password" value={this.state.loginData.password}
                 placeholder="Insert password..."
                 onChange={e => this.updateField(e)}></input>
 
-                <button className="cbutton" onClick={this.postLoginData()}>Login</button>
+                <button className="cbutton" onClick={ () => this.postLoginData()}>Login</button>
                 {/*<button className="cbutton" onClick={this.registerBtn}>Register</button>*/}
             </div>
         )
