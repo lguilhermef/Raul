@@ -20,7 +20,7 @@ namespace raul.Models.Db
 
         public string TeamName { get; set; }
         public string Country { get; set; }
-        public string Alias { get; set; }
+        public string Supporters { get; set; }
         public string Initials { get; set; }
         public bool IsNationalTeam { get; set; }
 

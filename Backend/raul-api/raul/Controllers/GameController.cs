@@ -11,14 +11,14 @@ namespace RaulWebApi.Controllers
 {
     [Route("api/game/")]
     [ApiController]
-    public class GameController : RaulController
+    public class GameController : ControllerBase
     {
 
         public GameService gameService;
 
         public GameController ()
         {
-            setServiceImplementation(new GameService());
+            this.gameService = new GameService();
         }
 
         [HttpGet("nextGame")]

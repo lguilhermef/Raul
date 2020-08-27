@@ -13,14 +13,14 @@ namespace RaulWebApi.Controllers
 {
     [Route("api/competition/")]
     [ApiController]
-    public class CompetitionController : RaulController
+    public class CompetitionController : ControllerBase
     {
 
         public CompetitionService competitionService;
 
         public CompetitionController()
         {
-            setServiceImplementation(new CompetitionService());
+            this.competitionService = new CompetitionService();
         }
 
         [HttpGet("nextCompetition")]

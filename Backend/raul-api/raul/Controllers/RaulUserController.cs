@@ -11,7 +11,7 @@ namespace RaulWebApi.Controllers
 {
     [Route("api/raulUser/")]
     [ApiController]
-    public class RaulUserController : RaulController
+    public class RaulUserController : ControllerBase
     {
 
         public RaulUserController ()

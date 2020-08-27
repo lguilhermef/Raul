@@ -23,6 +23,7 @@ namespace raul.Models.Db
         public string MediaFavTeam { get; set; }
         public string MediaRivalTeam { get; set; }
         public int? FavPlayerId { get; set; }
+        public string Password { get; set; }
 
         public Player FavPlayer { get; set; }
         public Team MediaFavTeamNavigation { get; set; }

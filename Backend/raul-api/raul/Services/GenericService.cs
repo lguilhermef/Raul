@@ -9,11 +9,5 @@ namespace raul.Services
 {
     public class GenericService
     {
-        public RaulDbContext dbContext { get; set; }
-
-        public GenericService()
-        {
-            this.dbContext = new RaulDbContext();
-        }
     }
 }

@@ -14,20 +14,27 @@ namespace raul.Controllers
 {
     [Route("api/auth")]
     [ApiController]
-    public class AuthController : RaulController
+    public class AuthController : ControllerBase
     {
+
+        private AuthService authService;
 
         public AuthController ()
         {
-            setServiceImplementation(new AuthService());
+            this.authService = new AuthService();
         }
-
 
         [HttpPost("login")]
         public IActionResult login ([FromBody] RaulUser user)
         {
-            RaulUser raulUser = user;
-            return BadRequest();
+            bool isLoginSuccessful = authService.login(user.Username, user.Password);
+            
+            if (!isLoginSuccessful)
+            {
+                return BadRequest("LOL");
+            }
+
+            return Ok();
         }
 
         [HttpPost("register")]

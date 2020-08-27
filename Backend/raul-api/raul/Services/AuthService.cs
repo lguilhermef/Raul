@@ -1,4 +1,5 @@
-﻿using raul.Models.Db;
+﻿using raul.Models.DAL;
+using raul.Models.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,22 @@ namespace raul.Services
 {
     public class AuthService : GenericService
     {
+        private const int saltSize = 16;
+        private const int hashSize = 20;
+
+        private AuthRepository _authRepository;
+
+        public AuthService ()
+        {
+            this._authRepository = new AuthRepository();
+        }
 
         public bool login (string username, string password)
         {
-            RaulUser persistedUser = dbContext.RaulUser.Where(u => u.Username == username).FirstOrDefault();
+            RaulUser user = _authRepository.getUser(username);
+            bool isPassCorret = verify(password, user.Password);
 
-            if (persistedUser == null)
-            {
-                return false;
-            }
-
-            string hashedPass = getProcessedPassword(password);
-
-            return false;
+            return isPassCorret;
         }
 
         public bool register (string username, string password)
@@ -30,46 +34,62 @@ namespace raul.Services
             return false;
         }
 
-        private bool isUserRegistered ()
-        {
-
-            return false;
-        }
-
-        private string getProcessedPassword (string password)
-        {
-            byte[] salt = this.getSalt();
-            byte[] hash = this.getHash(password, salt);
-            byte[] saltAndHash = this.getSaltAndHashCombined(salt, hash);
-            string processedPass = this.getSaltAndHashString(saltAndHash);
-            return processedPass;
-        }
-           
-        private byte[] getSalt ()
+        //TODO: This should be a separate class. It's an utility service
+        private string hash (string password, int iterations)
         {
             byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
-            return salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[saltSize]);
+            
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+            var hash = pbkdf2.GetBytes(hashSize);
+
+            var hashBytes = new byte[saltSize + hashSize];
+            Array.Copy(salt, 0, hashBytes, 0, saltSize);
+            Array.Copy(hash, 0, hashBytes, saltSize, hashSize);
+
+            var base64Hash = Convert.ToBase64String(hashBytes);
+
+            return string.Format("$MYHASH$V1${0}${1}", iterations, base64Hash);
         }
 
-        private byte[] getHash (string password, byte [] salt)
+        private string hash (string password)
         {
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
-            return pbkdf2.GetBytes(20);
+            return hash(password, 10000);
         }
 
-        private byte[] getSaltAndHashCombined (byte[] salt, byte[] hash)
+        private bool isHashSupported (string hashString)
         {
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            return hashBytes;
+            return hashString.Contains("$MYHASH$V1$");
         }
 
-        private string getSaltAndHashString (byte[] hashbytes)
+        private bool verify(string password, string hashedPassword)
         {
-            string savedPasswordHash = Convert.ToBase64String(hashbytes);
-            return savedPasswordHash;
+            if (!isHashSupported(hashedPassword))
+            {
+                throw new NotSupportedException("The hashtype is not supported");
+            }
+
+            var splittedHashString = hashedPassword.Replace("$MYHASH$V1$", "").Split('$');
+            var iterations = int.Parse(splittedHashString[0]);
+            var base64Hash = splittedHashString[1];
+
+            var hashBytes = Convert.FromBase64String(base64Hash);
+
+            var salt = new byte[saltSize];
+            Array.Copy(hashBytes, 0, salt, 0, saltSize);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+            byte[] hash = pbkdf2.GetBytes(hashSize);
+
+            for (var i = 0; i < hashSize; i++)
+            {
+                if (hashBytes[i + saltSize] != hash[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

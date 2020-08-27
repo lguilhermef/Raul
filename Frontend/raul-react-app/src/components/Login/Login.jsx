@@ -31,10 +31,12 @@ export default class Login extends Component {
             method: 'post',
             url: apiURL,
             data: {
-              username: 'Fred',
-              password: 'Flintstone'
+              username: 'Luís',
+              password: 'hehe'
             }
-          });
+          }).then(resp => {
+              console.log(resp.headers + " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+          })
     }
 
     render () {

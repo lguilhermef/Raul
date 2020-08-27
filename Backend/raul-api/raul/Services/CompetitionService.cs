@@ -11,8 +11,8 @@ namespace raul.Services
 
         public Competition getNextCompetition()
         {
-            Competition nextCompetition = dbContext.Competition.FirstOrDefault();
-            return nextCompetition;
+            //Competition nextCompetition = dbContext.Competition.FirstOrDefault();
+            return new Competition();
         }
 
         public Competition createNewLeague ()
@@ -23,8 +23,8 @@ namespace raul.Services
 
         public List<Game> getCalendar (Competition competition)
         {
-            List<Game> calendar = dbContext.Game.ToList();
-            return calendar;
+            //List<Game> calendar = dbContext.Game.ToList();
+            return new List<Game>();
         }
     }
 }

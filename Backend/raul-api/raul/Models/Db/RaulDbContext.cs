@@ -28,6 +28,9 @@ namespace raul.Models.Db
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Universe> Universe { get; set; }
 
+        // Unable to generate entity type for table 'dbo.Universe_User'. Please see the warning messages.
+        // Unable to generate entity type for table 'dbo.Team_Pot'. Please see the warning messages.
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -341,6 +344,10 @@ namespace raul.Models.Db
                     .HasColumnName("media_rival_team")
                     .HasMaxLength(100);
 
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password");
+
                 entity.Property(e => e.PesFavTeam)
                     .HasColumnName("pes_fav_team")
                     .HasMaxLength(100);
@@ -420,23 +427,18 @@ namespace raul.Models.Db
             {
                 entity.HasKey(e => e.TeamName);
 
-                entity.HasIndex(e => e.Alias)
-                    .HasName("UQ__Team__8C585C043F256002")
-                    .IsUnique();
-
                 entity.HasIndex(e => e.Initials)
                     .HasName("UQ__Team__696DB02C9A017446")
+                    .IsUnique();
+
+                entity.HasIndex(e => e.Supporters)
+                    .HasName("UQ__Team__8C585C043F256002")
                     .IsUnique();
 
                 entity.Property(e => e.TeamName)
                     .HasColumnName("team_name")
                     .HasMaxLength(100)
                     .ValueGeneratedNever();
-
-                entity.Property(e => e.Alias)
-                    .IsRequired()
-                    .HasColumnName("alias")
-                    .HasMaxLength(100);
 
                 entity.Property(e => e.Country)
                     .HasColumnName("country")
@@ -448,6 +450,11 @@ namespace raul.Models.Db
                     .HasMaxLength(10);
 
                 entity.Property(e => e.IsNationalTeam).HasColumnName("is_national_team");
+
+                entity.Property(e => e.Supporters)
+                    .IsRequired()
+                    .HasColumnName("supporters")
+                    .HasMaxLength(100);
 
                 entity.HasOne(d => d.CountryNavigation)
                     .WithMany(p => p.Team)

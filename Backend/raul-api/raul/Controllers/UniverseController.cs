@@ -10,7 +10,7 @@ namespace RaulWebApi.Controllers
 {
     [Route("api/universe")]
     [ApiController]
-    public class UniverseController : RaulController
+    public class UniverseController : ControllerBase
     {
 
         public UniverseService universeService;
