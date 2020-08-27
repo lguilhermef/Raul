@@ -1,3 +1,7 @@
 body {
     color: rgb(248, 242, 242);
 }
+
+.form-control {
+    max-width: 50%;
+}

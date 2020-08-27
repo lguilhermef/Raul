@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
     render () {
         return (
             <div>
-                <Header className="header" setCompetition={this.setCompetition}/>
+                <Header className="header" setCompetition={this.setCompetition} user={this.props.user}/>
                 <Banner currCompetition={this.state.competition}/>
                 <Routes currCompetition={this.state.competition}/>
             </div>

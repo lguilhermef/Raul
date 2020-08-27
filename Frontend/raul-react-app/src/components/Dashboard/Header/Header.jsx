@@ -6,6 +6,7 @@ import ComptSelector from './ComptSelector/ComptSelector'
 
 export default props =>
     <div className="header">
+        Welcome home, ## <strong>{props.user.username}</strong> ## 
         <ComptSelector setCompetition={props.setCompetition} className="compts"/>
         <Link to="/calendar">
             <button className="oldBtn">Calendar</button>

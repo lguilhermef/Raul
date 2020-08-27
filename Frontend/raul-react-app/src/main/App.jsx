@@ -8,6 +8,15 @@ import Dashboard from "../components/Dashboard/Dashboard"
 
 const loginUrl = "";
 let isLoggedIn = false;
+const raulUser = {
+    username: "",
+    rlFavTeam: "",
+    pesFavTeam: "",
+    rivalTeam: "",
+    mediaFavTeam: "",
+    mediaRilvarTeam: "",
+    favPlayerId: null,
+}
 
 export default class App extends Component {
 
@@ -18,7 +27,7 @@ export default class App extends Component {
 
         this.state = {
 
-            username: "",
+            user: null,
             selectedUniverse: 0,
         }
 
@@ -29,7 +38,7 @@ export default class App extends Component {
 
         if (user != null) {
             isLoggedIn = true;
-            this.setState({isLoggedIn});
+            this.setState({isLoggedIn, user});
         }
     }
 
@@ -39,15 +48,15 @@ export default class App extends Component {
             return ( 
                 <HashRouter>
                     <div className="App">
-                        <Dashboard className="dashboard"/>
+                        <Dashboard className="dashboard" user={this.state.user}/>
                     </div>
                 </HashRouter>
                     )
         } else {
 
             return (
-                <div>
-                <Login className="login" login={this.login}/>
+                <div className="login">
+                    <Login login={this.login}/>
                 </div>
             )
         }
