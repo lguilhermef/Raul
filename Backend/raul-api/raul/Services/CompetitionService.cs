@@ -1,4 +1,5 @@
-﻿using raul.Models.Db;
+﻿using raul.Models.DAL;
+using raul.Models.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,14 @@ namespace raul.Services
 {
     public class CompetitionService : GenericService
     {
+        private CompetitionRepository _competitionRepository;
+        private GameRepository _gameRepository;
+
+        public CompetitionService ()
+        {
+            this._competitionRepository = new CompetitionRepository();
+            this._gameRepository = new GameRepository();
+        }
 
         public Competition getNextCompetition()
         {
@@ -21,10 +30,10 @@ namespace raul.Services
             return newLeague;
         }
 
-        public List<Game> getCalendar (Competition competition)
+        public List<Game> getCalendar (int universeId, string competitionName)
         {
-            //List<Game> calendar = dbContext.Game.ToList();
-            return new List<Game>();
+            Competition currentCompetition = _competitionRepository.getNewestCompetition(universeId, competitionName);
+            return _gameRepository.getCompetitionGames(universeId, competitionName, currentCompetition.Edition);
         }
     }
 }

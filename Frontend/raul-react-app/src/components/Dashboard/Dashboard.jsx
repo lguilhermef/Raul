@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
             <div>
                 <Header className="header" setCompetition={this.setCompetition} user={this.props.user}/>
                 <Banner currCompetition={this.state.competition}/>
-                <Routes currCompetition={this.state.competition}/>
+                <Routes currCompetition={this.state.competition} user={this.props.user} universe={this.props.universe}/>
             </div>
         )
     }

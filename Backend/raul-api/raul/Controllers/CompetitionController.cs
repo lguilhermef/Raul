@@ -17,10 +17,12 @@ namespace RaulWebApi.Controllers
     {
 
         public CompetitionService competitionService;
+        public UniverseService universeService;
 
         public CompetitionController()
         {
             this.competitionService = new CompetitionService();
+            this.universeService = new UniverseService();
         }
 
         [HttpGet("nextCompetition")]
@@ -45,8 +47,10 @@ namespace RaulWebApi.Controllers
         }
 
         [HttpGet("calendar")]
-        public IActionResult getCalendar ()
+        public IActionResult getCalendar ([FromBody] int universeId, string competitionName)
         {
+            //Universe universe = universeService.getUniverseById(universeId); Actually, this is not needed here.
+            competitionService.getCalendar(universeId, competitionName);
             Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
             List<Game> calendar = competitionService.getCalendar(competition);
             return Ok(calendar);

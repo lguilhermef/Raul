@@ -6,15 +6,15 @@ import { HashRouter } from 'react-router-dom'
 import Login from "../components/Login/Login"
 import Dashboard from "../components/Dashboard/Dashboard"
 
-const loginUrl = "";
-let isLoggedIn = false;
+let isLoggedIn = true;
+
 const raulUser = {
-    username: "",
-    rlFavTeam: "",
-    pesFavTeam: "",
+    username: "Luís",
+    rlFavTeam: "F.C. Porto",
+    pesFavTeam: "Club Atlético de Madrid",
     rivalTeam: "",
-    mediaFavTeam: "",
-    mediaRilvarTeam: "",
+    mediaFavTeam: "Club Atlético de Madrid",
+    mediaRilvarTeam: "Chelsea F.C.",    
     favPlayerId: null,
 }
 
@@ -27,8 +27,8 @@ export default class App extends Component {
 
         this.state = {
 
-            user: null,
-            selectedUniverse: 0,
+            user: raulUser,
+            selectedUniverse: 1,
         }
 
         this.login = this.login.bind(this);
@@ -48,7 +48,7 @@ export default class App extends Component {
             return ( 
                 <HashRouter>
                     <div className="App">
-                        <Dashboard className="dashboard" user={this.state.user}/>
+                        <Dashboard className="dashboard" user={this.state.user} universe={1}/>
                     </div>
                 </HashRouter>
                     )
