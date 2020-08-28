@@ -18,7 +18,7 @@ HTML, CSS, JavaScript, React, Axios, C#, SQL.
 
 ### Current Issue (WIP) ###
 
-Developing the Authentication Module (FE & BE).
+Building the data flow that allows creating a new competition calendar (FE & BE).
 
 
 
