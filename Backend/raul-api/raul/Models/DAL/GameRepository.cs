@@ -18,7 +18,7 @@ namespace raul.Models.DAL
         {
             return dbContext.Game
                 .Where(g => g.UniverseId == universeId && g.CompetitionName == competitionName && g.CompetitionEdition == competitionEdition)
-                .ToList();
+                .OrderBy(g => g.Id).ToList();
         }
     }
 }

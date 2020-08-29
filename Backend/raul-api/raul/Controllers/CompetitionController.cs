@@ -52,7 +52,7 @@ namespace RaulWebApi.Controllers
             //Universe universe = universeService.getUniverseById(universeId); Actually, this is not needed here.
             competitionService.getCalendar(universeId, competitionName);
             Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
-            List<Game> calendar = competitionService.getCalendar(competition);
+            List<Game> calendar = competitionService.getCalendar(universeId, competitionName);
             return Ok(calendar);
         }
     }
