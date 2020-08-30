@@ -38,7 +38,8 @@ export default class Calendar extends Component {
 
     renderGames () {
         return this.state.gameList.map(g =>
-            <li title={this.getWinner(g)} className={g.isOver ? "playedGame" : "game"}>Game {g.competitionRound} - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
+            <li title={this.getWinner(g)} className={g.isOver ? "playedGame" : "game"}>Game {g.competitionRound} 
+            - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
         )
     }
 
