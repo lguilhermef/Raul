@@ -5,3 +5,11 @@
 .gamelist {
     text-align: left;
 }
+
+.playedGame {
+    color: rgb(111, 195, 235);
+}
+
+.game {
+    color: rgb(231, 195, 117)
+}

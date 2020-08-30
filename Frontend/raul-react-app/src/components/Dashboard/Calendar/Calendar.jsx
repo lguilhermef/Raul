@@ -19,6 +19,7 @@ export default class Calendar extends Component {
         }
 
         this.renderGames = this.renderGames.bind(this);
+        this.getWinner = this.getWinner.bind(this);
     }
 
     componentDidMount () {
@@ -37,8 +38,20 @@ export default class Calendar extends Component {
 
     renderGames () {
         return this.state.gameList.map(g =>
-        <li>Game {g.competitionRound} - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
+            <li title={this.getWinner(g)} className={g.isOver ? "playedGame" : "game"}>Game {g.competitionRound} - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
         )
+    }
+
+    getWinner (game) { 
+        if (!game.isOver) {
+            return null;
+        }
+
+        if (game.homeScore == game.awayScore) {
+            return "Draw"
+        }
+
+        return game.homeScore > game.awayScore ? game.homeRaulUUsername : game.awayRaulUUsername;
     }
 
     render () {
