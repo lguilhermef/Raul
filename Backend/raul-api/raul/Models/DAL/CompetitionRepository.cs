@@ -16,8 +16,9 @@ namespace raul.Models.DAL
 
         public Competition getNewestCompetition(int universeId, string competitionName)
         {
-            return dbContext.Competition.OrderBy(c => c.Edition)
+            Competition competition = dbContext.Competition.OrderBy(c => c.Edition)
                 .Where(c => c.UniverseId == universeId && c.ComptName == competitionName).FirstOrDefault();
+            return competition;
         }
     }
 }

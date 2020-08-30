@@ -36,14 +36,16 @@ export default class Calendar extends Component {
     }
 
     renderGames () {
-
+        return this.state.gameList.map(g =>
+        <li>Game {g.competitionRound} - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
+        )
     }
 
     render () {
         return (
             <div className="calendar">
                 <p>User: {this.state.user.username} - Universe: {this.state.universe}</p>
-                <li>Jornada 02 - Pote A:  <strong>Manchester City</strong> 1 x 2 <strong> Juventus </strong></li>
+                {this.renderGames()}
             </div>
         )
     }

@@ -48,13 +48,15 @@ namespace RaulWebApi.Controllers
         }
 
         [HttpPost("calendar")]
-        public IActionResult getCalendar ([FromBody] JObject data)
+        public IActionResult getCalendar ([FromBody] JObject jsonData)
         {
-            //Universe universe = universeService.getUniverseById(universeId); Actually, this is not needed here.
-            //competitionService.getCalendar(universeId, competitionName);
-            //Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
-            List<Game> calendarTest = new List<Game>();
-            //List<Game> calendar = competitionService.getCalendar(universeId, competitionName);
+            dynamic json = jsonData;
+            int universeId = json.universeId;
+            string competitionName = json.competitionName;
+            //TODO: Create a layer to allow declaring postedData type
+            
+            List<Game> calendarTest = competitionService.getCalendar(universeId, competitionName);
+            
             return Ok(calendarTest);
         }
     }

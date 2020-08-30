@@ -13,7 +13,7 @@ namespace RaulWebApi.Services
         public Game getNextGame (Competition competition)
         {
             //Game nextGame = this.dbContext.Game.FirstOrDefault(c => c.CompetitionName == competition.ComptName && c.IsOver == true);
-            return new Game(1,new Team(), 2, new Team());
+            return new Game();
         }
 
         public void persistGame (Game game)

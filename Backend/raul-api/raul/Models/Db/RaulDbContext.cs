@@ -267,11 +267,11 @@ namespace raul.Models.Db
 
                 entity.Property(e => e.MediaDescription)
                     .HasColumnName("media_description")
-                    .HasMaxLength(100);
+                    .HasMaxLength(200);
 
                 entity.Property(e => e.PotDescription)
                     .HasColumnName("pot_description")
-                    .HasMaxLength(100);
+                    .HasMaxLength(200);
 
                 entity.HasOne(d => d.Universe)
                     .WithMany(p => p.Pot)
