@@ -18,5 +18,5 @@ CREATE TABLE Game (
 	is_over bit NOT NULL,
 	played_date date,
 	FOREIGN KEY (universe_id, competition_name, competition_edition) REFERENCES Competition(universe_id, compt_name, edition),
-	FOREIGN KEY (universe_id, pot_name) REFERENCES Pot(universe_id, pot_name)
+	FOREIGN KEY (pot_name, universe_id) REFERENCES Pot(pot_name, universe_id)
 	);
