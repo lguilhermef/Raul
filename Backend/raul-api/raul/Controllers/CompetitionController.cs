@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using raul.Models.Db;
 using raul.Services;
 using RaulWebApi.Services;
@@ -46,14 +47,15 @@ namespace RaulWebApi.Controllers
             return Ok(comptList);
         }
 
-        [HttpGet("calendar")]
-        public IActionResult getCalendar ([FromBody] int universeId, string competitionName)
+        [HttpPost("calendar")]
+        public IActionResult getCalendar ([FromBody] JObject data)
         {
             //Universe universe = universeService.getUniverseById(universeId); Actually, this is not needed here.
-            competitionService.getCalendar(universeId, competitionName);
-            Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
-            List<Game> calendar = competitionService.getCalendar(universeId, competitionName);
-            return Ok(calendar);
+            //competitionService.getCalendar(universeId, competitionName);
+            //Competition competition = new Competition();//TODO: get a competition or competition Id from Front-end
+            List<Game> calendarTest = new List<Game>();
+            //List<Game> calendar = competitionService.getCalendar(universeId, competitionName);
+            return Ok(calendarTest);
         }
     }
 }

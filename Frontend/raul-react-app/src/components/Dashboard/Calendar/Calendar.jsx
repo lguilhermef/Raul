@@ -14,23 +14,29 @@ export default class Calendar extends Component {
         this.state = {
             user: props.user,
             universe: props.universe,
+            competitionName: props.currCompetition,
             gameList: []
         }
+
+        this.renderGames = this.renderGames.bind(this);
     }
 
     componentDidMount () {
-   
+
         axios({
-            method: 'get',
+            method: "post",
             url: apiCalendar,
-            data: this.state.universe
+            data: {
+                universeId: this.state.universe, //number
+                competitionName: this.state.competitionName //string
+            }
           }).then(resp => {
               this.setState({gameList: resp.data})
           })
     }
 
     renderGames () {
-        
+
     }
 
     render () {
