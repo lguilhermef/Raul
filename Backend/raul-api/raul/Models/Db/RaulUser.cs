@@ -12,7 +12,6 @@ namespace raul.Models.Db
             Competition = new HashSet<Competition>();
             GameAwayRaulUUsernameNavigation = new HashSet<Game>();
             GameHomeRaulUUsernameNavigation = new HashSet<Game>();
-            Goal = new HashSet<Goal>();
             Season = new HashSet<Season>();
         }
 
@@ -36,7 +35,6 @@ namespace raul.Models.Db
         public ICollection<Competition> Competition { get; set; }
         public ICollection<Game> GameAwayRaulUUsernameNavigation { get; set; }
         public ICollection<Game> GameHomeRaulUUsernameNavigation { get; set; }
-        public ICollection<Goal> Goal { get; set; }
         public ICollection<Season> Season { get; set; }
     }
 }

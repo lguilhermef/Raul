@@ -4,6 +4,7 @@ GO
 CREATE TABLE Game (
 
 	id int NOT NULL IDENTITY PRIMARY KEY,
+	pot_name nvarchar (100) NOT NULL,
 	universe_id int NOT NULL,
 	competition_name nvarchar(100) NOT NULL, 
 	competition_edition int NOT NULL,
@@ -16,5 +17,6 @@ CREATE TABLE Game (
 	away_score  int,
 	is_over bit NOT NULL,
 	played_date date,
-	FOREIGN KEY (universe_id, competition_name, competition_edition) REFERENCES Competition(universe_id, compt_name, edition)
+	FOREIGN KEY (universe_id, competition_name, competition_edition) REFERENCES Competition(universe_id, compt_name, edition),
+	FOREIGN KEY (universe_id, pot_name) REFERENCES Pot(universe_id, pot_name)
 	);

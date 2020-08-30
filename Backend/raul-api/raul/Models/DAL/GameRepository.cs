@@ -20,5 +20,24 @@ namespace raul.Models.DAL
                 .Where(g => g.UniverseId == universeId && g.CompetitionName == competitionName && g.CompetitionEdition == competitionEdition)
                 .OrderBy(g => g.Id).ToList();
         }
+
+        public void populate()
+        {
+            dbContext.Game.Add(new Game()
+            {
+                UniverseId = 1,
+                CompetitionName = "League",
+                CompetitionEdition = 1,
+                CompetitionRound = 1,
+                HomeRaulUUsername = "Luís",
+                HomeTeam = "",
+                HomeScore = null,
+                AwayRaulUUsername = "António",
+                AwayTeam = "",
+                AwayScore = null,
+                IsOver = false,
+                PlayedDate = null
+            });
+        }
     }
 }

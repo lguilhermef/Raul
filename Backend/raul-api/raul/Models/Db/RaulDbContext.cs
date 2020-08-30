@@ -20,7 +20,6 @@ namespace raul.Models.Db
         public virtual DbSet<Competition> Competition { get; set; }
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Game> Game { get; set; }
-        public virtual DbSet<Goal> Goal { get; set; }
         public virtual DbSet<Player> Player { get; set; }
         public virtual DbSet<Pot> Pot { get; set; }
         public virtual DbSet<RaulUser> RaulUser { get; set; }
@@ -192,92 +191,48 @@ namespace raul.Models.Db
                     .HasColumnName("played_date")
                     .HasColumnType("date");
 
+                entity.Property(e => e.PotName)
+                    .IsRequired()
+                    .HasColumnName("pot_name")
+                    .HasMaxLength(100);
+
                 entity.Property(e => e.UniverseId).HasColumnName("universe_id");
 
                 entity.HasOne(d => d.AwayRaulUUsernameNavigation)
                     .WithMany(p => p.GameAwayRaulUUsernameNavigation)
                     .HasForeignKey(d => d.AwayRaulUUsername)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Game__away_raul___52E34C9D");
+                    .HasConstraintName("FK__Game__away_raul___5C37ACAD");
 
                 entity.HasOne(d => d.AwayTeamNavigation)
                     .WithMany(p => p.GameAwayTeamNavigation)
                     .HasForeignKey(d => d.AwayTeam)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Game__away_team__53D770D6");
+                    .HasConstraintName("FK__Game__away_team__5D2BD0E6");
 
                 entity.HasOne(d => d.HomeRaulUUsernameNavigation)
                     .WithMany(p => p.GameHomeRaulUUsernameNavigation)
                     .HasForeignKey(d => d.HomeRaulUUsername)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Game__home_raul___50FB042B");
+                    .HasConstraintName("FK__Game__home_raul___5A4F643B");
 
                 entity.HasOne(d => d.HomeTeamNavigation)
                     .WithMany(p => p.GameHomeTeamNavigation)
                     .HasForeignKey(d => d.HomeTeam)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Game__home_team__51EF2864");
+                    .HasConstraintName("FK__Game__home_team__5B438874");
+
+                entity.HasOne(d => d.Pot)
+                    .WithMany(p => p.Game)
+                    .HasForeignKey(d => new { d.PotName, d.UniverseId })
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Game__5F141958");
 
                 entity.HasOne(d => d.Competition)
                     .WithMany(p => p.Game)
                     .HasForeignKey(d => new { d.UniverseId, d.CompetitionName, d.CompetitionEdition })
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Game__54CB950F");
-            });
-
-            modelBuilder.Entity<Goal>(entity =>
-            {
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.AssistId).HasColumnName("assist_id");
-
-                entity.Property(e => e.GameId).HasColumnName("game_id");
-
-                entity.Property(e => e.GamePart).HasColumnName("game_part");
-
-                entity.Property(e => e.GoalTime).HasColumnName("goal_time");
-
-                entity.Property(e => e.ScorerId).HasColumnName("scorer_id");
-
-                entity.Property(e => e.ScorerRaulUUsername)
-                    .IsRequired()
-                    .HasColumnName("scorer_raul_u_username")
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.Team)
-                    .IsRequired()
-                    .HasColumnName("team")
-                    .HasMaxLength(100);
-
-                entity.HasOne(d => d.Assist)
-                    .WithMany(p => p.GoalAssist)
-                    .HasForeignKey(d => d.AssistId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Goal__assist_id__61316BF4");
-
-                entity.HasOne(d => d.Game)
-                    .WithMany(p => p.Goal)
-                    .HasForeignKey(d => d.GameId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Goal__game_id__6225902D");
-
-                entity.HasOne(d => d.Scorer)
-                    .WithMany(p => p.GoalScorer)
-                    .HasForeignKey(d => d.ScorerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Goal__scorer_id__603D47BB");
-
-                entity.HasOne(d => d.ScorerRaulUUsernameNavigation)
-                    .WithMany(p => p.Goal)
-                    .HasForeignKey(d => d.ScorerRaulUUsername)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Goal__scorer_rau__5E54FF49");
-
-                entity.HasOne(d => d.TeamNavigation)
-                    .WithMany(p => p.Goal)
-                    .HasForeignKey(d => d.Team)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Goal__team__5F492382");
+                    .HasConstraintName("FK__Game__5E1FF51F");
             });
 
             modelBuilder.Entity<Player>(entity =>

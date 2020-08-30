@@ -5,12 +5,8 @@ namespace raul.Models.Db
 {
     public partial class Game
     {
-        public Game()
-        {
-            Goal = new HashSet<Goal>();
-        }
-
         public int Id { get; set; }
+        public string PotName { get; set; }
         public int UniverseId { get; set; }
         public string CompetitionName { get; set; }
         public int CompetitionEdition { get; set; }
@@ -29,6 +25,6 @@ namespace raul.Models.Db
         public Competition Competition { get; set; }
         public RaulUser HomeRaulUUsernameNavigation { get; set; }
         public Team HomeTeamNavigation { get; set; }
-        public ICollection<Goal> Goal { get; set; }
+        public Pot Pot { get; set; }
     }
 }

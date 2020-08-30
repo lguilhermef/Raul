@@ -9,7 +9,7 @@ namespace raul.Models.DAL
     public class CompetitionRepository
     {
         private RaulDbContext dbContext;
-        public CompetitionRepository ()
+        public CompetitionRepository()
         {
             this.dbContext = new RaulDbContext();
         }
