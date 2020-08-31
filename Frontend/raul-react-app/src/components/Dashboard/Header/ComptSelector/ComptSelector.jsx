@@ -48,8 +48,8 @@ export default class ComptSelector extends Component {
     rComptOptionsSelectorOpts () {
         let key = 1;
         return this.state.comptList.map((c) =>
-            <option key={key++} value={c.comptName}>{c.comptName}</option>
-            )
+            <option key={key++} value={c.comptName} selected={c.comptName == "League"}>{c.comptName}</option>
+        )
     }
 
     render () {
