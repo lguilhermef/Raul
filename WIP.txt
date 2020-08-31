@@ -3,6 +3,8 @@ Under a competition Ascii, the previous best scorer and title holder should appe
 Game title <li title={THIS}> should display the player goals and points till that point of the competition. In case of a cup, how many victories away the player was.
 Competitions that are over should display a Winner Ascii and the ability to generate a new calendar. 
 Games should have media links to comments made by players
+Clicking on a game <li> should show stats regarding that game in specific, stats about that competition round in the past or the competition status on round x, 
+calculus about what each player needs, how far away they are from records (if it makes sense)
 
 
 Once the MVP is working properly, hooks should be learned and a tick option should be used to allow a modern presentation too.
