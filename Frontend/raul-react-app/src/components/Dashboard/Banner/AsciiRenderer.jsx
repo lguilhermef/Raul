@@ -14,5 +14,5 @@ function renderer (competition) {
 
 export default props =>
     <div>
-        {renderer(props.currCompetition)}
+        {renderer(props.currCompetition.comptName)}
     </div>

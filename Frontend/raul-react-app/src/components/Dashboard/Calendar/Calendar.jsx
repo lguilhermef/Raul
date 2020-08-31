@@ -10,20 +10,20 @@ export default class Calendar extends Component {
 
     constructor(props) {
         super(props)
-
+        console.log("HEREREEERERE " + this.props.currCompetition.comptName)
         this.state = {
             user: props.user,
             universe: props.universe,
-            competitionName: props.currCompetition,
+            competitionName: props.currCompetition.comptName,
             gameList: []
         }
-
+        console.log("NUMBA 2 HE " + this.state.competitionName)
         this.renderGames = this.renderGames.bind(this);
         this.getWinner = this.getWinner.bind(this);
     }
 
     componentDidMount () {
-
+        console.log("CARAAAAA " + this.state.competitionName)
         axios({
             method: "post",
             url: apiCalendar,
