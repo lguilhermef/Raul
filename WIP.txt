@@ -1,0 +1,9 @@
+Teams should be links -> clicking shows statistics for both players
+Under a competition Ascii, the previous best scorer and title holder should appear
+Game title <li title={THIS}> should display the player goals and points till that point of the competition. In case of a cup, how many victories away the player was.
+Competitions that are over should display a Winner Ascii and the ability to generate a new calendar. 
+Games should have media links to comments made by players
+
+
+Once the MVP is working properly, hooks should be learned and a tick option should be used to allow a modern presentation too.
+Section about the project, Raul's history and story, etc.
