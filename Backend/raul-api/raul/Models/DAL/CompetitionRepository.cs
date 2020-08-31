@@ -20,5 +20,10 @@ namespace raul.Models.DAL
                 .Where(c => c.UniverseId == universeId && c.ComptName == competitionName).FirstOrDefault();
             return competition;
         }
+
+        public List<Competition> getCompetitionList (int universeId)
+        {
+            return dbContext.Competition.Where(c => c.UniverseId == universeId).ToList();
+        }
     }
 }

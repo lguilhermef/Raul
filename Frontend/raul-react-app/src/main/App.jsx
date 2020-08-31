@@ -8,6 +8,12 @@ import Dashboard from "../components/Dashboard/Dashboard"
 
 let isLoggedIn = true;
 
+const universe = {
+    id: 1,
+    history: "",
+    creationDate: null
+}
+
 const raulUser = {
     username: "Luís",
     rlFavTeam: "F.C. Porto",
@@ -28,7 +34,7 @@ export default class App extends Component {
         this.state = {
 
             user: raulUser,
-            selectedUniverse: 1,
+            universe: universe,
         }
 
         this.login = this.login.bind(this);
@@ -48,7 +54,7 @@ export default class App extends Component {
             return ( 
                 <HashRouter>
                     <div className="App">
-                        <Dashboard className="dashboard" user={this.state.user} universe={1}/>
+                        <Dashboard className="dashboard" user={this.state.user} universe={this.state.universe}/>
                     </div>
                 </HashRouter>
                     )

@@ -35,5 +35,10 @@ namespace raul.Services
             Competition currentCompetition = _competitionRepository.getNewestCompetition(universeId, competitionName);
             return _gameRepository.getCompetitionGames(universeId, competitionName, currentCompetition.Edition);
         }
+
+        public List<Competition> getCompetitionList (int universeId)
+        {
+            return _competitionRepository.getCompetitionList(universeId);
+        }
     }
 }

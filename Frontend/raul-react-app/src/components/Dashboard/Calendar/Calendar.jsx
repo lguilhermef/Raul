@@ -28,7 +28,7 @@ export default class Calendar extends Component {
             method: "post",
             url: apiCalendar,
             data: {
-                universeId: this.state.universe, //number
+                universeId: this.state.universe.id, //number
                 competitionName: this.state.competitionName //string
             }
           }).then(resp => {
@@ -52,13 +52,13 @@ export default class Calendar extends Component {
             return "Draw"
         }
 
-        return game.homeScore > game.awayScore ? game.homeRaulUUsername : game.awayRaulUUsername;
+        return game.homeScore > game.awayScore ? "Winner: " + game.homeRaulUUsername : "Winner: " + game.awayRaulUUsername;
     }
 
     render () {
         return (
             <div className="calendarBody">
-                <p>User: {this.state.user.username} - Universe: {this.state.universe}</p>
+                <p>User: {this.state.user.username} - Universe: {this.state.universe.id}</p>
                 <div className="calendar">
                     {this.renderGames()}
                 </div>

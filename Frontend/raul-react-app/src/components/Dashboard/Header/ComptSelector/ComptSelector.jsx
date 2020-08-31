@@ -12,6 +12,7 @@ export default class ComptSelector extends Component {
 
         this.state = {
             competition: "League",
+            universe: props.universe,
             comptList: []
         }
 
@@ -19,10 +20,16 @@ export default class ComptSelector extends Component {
     }
 
     componentDidMount () {
-        axios["get"](apiComptLstURL)
-            .then(resp => {
-                this.setState({comptList: resp.data});
-            });
+
+        axios({
+            method: 'post',
+            url: apiComptLstURL,
+            data: {
+                id: this.state.universe.id,
+            }
+          }).then(resp => {
+              this.setState({comptList: resp.data})
+          })
     }
 
     handleChange (event) {
@@ -41,7 +48,7 @@ export default class ComptSelector extends Component {
     rComptOptionsSelectorOpts () {
         let key = 1;
         return this.state.comptList.map((c) =>
-            <option key={key++} value={c}>{c}</option>
+            <option key={key++} value={c.comptName}>{c.comptName}</option>
             )
     }
 

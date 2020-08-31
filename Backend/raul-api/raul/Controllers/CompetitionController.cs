@@ -33,17 +33,10 @@ namespace RaulWebApi.Controllers
             return Ok(nextCompetition);
         }
 
-        [HttpGet("comptList")]
-        public IActionResult getCompetitionList()
+        [HttpPost("comptList")]
+        public IActionResult getCompetitionList([FromBody] Universe universe)
         {
-            List<String> comptList = new List<String>();
-            comptList.Add("League");
-            comptList.Add("Cup");
-            comptList.Add("Super Cup");
-            comptList.Add("League Cup");
-            comptList.Add("Champions League");
-            comptList.Add("Intercontinental");
-
+            List<Competition> comptList = competitionService.getCompetitionList(universe.Id);
             return Ok(comptList);
         }
 

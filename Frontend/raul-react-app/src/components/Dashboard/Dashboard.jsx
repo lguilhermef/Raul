@@ -14,6 +14,7 @@ export default class Dashboard extends Component {
 
         this.state = {
             competition: "League",
+            universe: props.universe,
             comptList: [],
         }
 
@@ -27,7 +28,7 @@ export default class Dashboard extends Component {
     render () {
         return (
             <div>
-                <Header className="header" setCompetition={this.setCompetition} user={this.props.user}/>
+                <Header universe={this.state.universe} className="header" setCompetition={this.setCompetition} user={this.props.user}/>
                 <Banner currCompetition={this.state.competition}/>
                 <Routes currCompetition={this.state.competition} user={this.props.user} universe={this.props.universe}/>
             </div>
