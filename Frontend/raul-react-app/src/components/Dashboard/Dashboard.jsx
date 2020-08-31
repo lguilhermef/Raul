@@ -2,9 +2,13 @@ import React from 'react'
 import { Component } from 'react'
 import './Dashboard.css'
 
+import axios from 'axios'
+
 import Header from './Header/Header'
 import Banner from './Banner/Banner'
 import Routes from './Routes'
+
+const apiNewestCompt = "https://localhost:44384/api/competition/getNewestCompetition"
 
 const competition = {
     universeId: null,
@@ -29,15 +33,25 @@ export default class Dashboard extends Component {
         }
 
         this.setCompetitionName = this.setCompetitionName.bind(this);
+        this.setCompetition = this.setCompetition.bind(this);
+    }
+
+    setCompetition (competitionName) {
+
+        axios({
+            method: "post",
+            url: apiNewestCompt,
+            data: {
+                universeId: this.state.universe.id,
+                competitionName: competitionName
+            }
+          }).then(resp => {
+              this.setState({competition: resp.data})
+          })
     }
 
     setCompetitionName (competitionName) {
-        //I need to get a compt from the API
-
-        let test = competition;
-        test.comptName = competitionName
-
-        this.setState({competition: test});
+        this.setCompetition(competitionName)
     }
 
     render () {

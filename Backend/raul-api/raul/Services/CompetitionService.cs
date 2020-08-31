@@ -18,6 +18,11 @@ namespace raul.Services
             this._gameRepository = new GameRepository();
         }
 
+        public Competition getNewestCompetition(int universeId, string competitionName)
+        {
+            return _competitionRepository.getNewestCompetition(universeId, competitionName);
+        }
+
         public Competition getNextCompetition()
         {
             //Competition nextCompetition = dbContext.Competition.FirstOrDefault();

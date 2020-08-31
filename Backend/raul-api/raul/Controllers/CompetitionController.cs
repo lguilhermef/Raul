@@ -26,6 +26,17 @@ namespace RaulWebApi.Controllers
             this.universeService = new UniverseService();
         }
 
+        [HttpPost("getNewestCompetition")]
+        public IActionResult getNewestCompetition ([FromBody] JObject jsonData)
+        {
+            dynamic json = jsonData;
+            int universeId = json.universeId;
+            string competitionName = json.competitionName;
+
+            Competition competition = competitionService.getNewestCompetition(universeId, competitionName);
+            return Ok(competition);
+        }
+
         [HttpGet("nextCompetition")]
         public IActionResult getNextCompetition()
         {
