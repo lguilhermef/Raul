@@ -57,9 +57,11 @@ export default class Calendar extends Component {
 
     render () {
         return (
-            <div className="calendar">
+            <div className="calendarBody">
                 <p>User: {this.state.user.username} - Universe: {this.state.universe}</p>
-                {this.renderGames()}
+                <div className="calendar">
+                    {this.renderGames()}
+                </div>
             </div>
         )
     }
