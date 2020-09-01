@@ -1,0 +1,42 @@
+.banner {
+    text-align: center;
+}
+
+pre {
+    color:rgb(80, 116, 170);
+    transition: 2s;
+}
+
+pre:hover {
+    color:rgb(182, 205, 240);
+    font-size: 14.3px;
+}
+
+.hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 80%;               
+    background-color:#092931;
+    height: 2px;
+    transition: 2s;
+}
+
+.hr:hover {
+    background-color: #1d4e5a;
+    width: 90%;
+    height: 3px;
+}
+
+.hru {
+    background-color:#092931;
+    height: 2px;
+    width: 100%;
+    transition: 1s;
+}
+
+.hru:active {
+    background-color:rgb(216, 201, 115);
+    height: 2.5px;
+    box-shadow: 3px 3px 3px rgb(212, 190, 141);
+}
