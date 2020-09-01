@@ -17,7 +17,14 @@ namespace RaulWebApi.Controllers
 
         public UniverseController()
         {
+            this.universeService = new UniverseService();
+        }
 
+        [HttpPost("universeList")]
+        public IActionResult getUniverseList([FromBody] RaulUser user)
+        {
+            List<Universe> universeLst = universeService.getUniverseList(user.Username);
+            return Ok(universeLst);
         }
     }
 }

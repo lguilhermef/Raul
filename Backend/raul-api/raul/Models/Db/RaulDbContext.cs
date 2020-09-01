@@ -26,8 +26,8 @@ namespace raul.Models.Db
         public virtual DbSet<Season> Season { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Universe> Universe { get; set; }
+        public virtual DbSet<UniverseUser> UniverseUser { get; set; }
 
-        // Unable to generate entity type for table 'dbo.Universe_User'. Please see the warning messages.
         // Unable to generate entity type for table 'dbo.Team_Pot'. Please see the warning messages.
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -426,6 +426,31 @@ namespace raul.Models.Db
                     .HasColumnType("date");
 
                 entity.Property(e => e.History).HasColumnName("history");
+            });
+
+            modelBuilder.Entity<UniverseUser>(entity =>
+            {
+                entity.HasKey(e => new { e.UniverseId, e.RaulUsername });
+
+                entity.ToTable("Universe_User");
+
+                entity.Property(e => e.UniverseId).HasColumnName("universe_id");
+
+                entity.Property(e => e.RaulUsername)
+                    .HasColumnName("raul_username")
+                    .HasMaxLength(100);
+
+                entity.HasOne(d => d.RaulUsernameNavigation)
+                    .WithMany(p => p.UniverseUser)
+                    .HasForeignKey(d => d.RaulUsername)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Universe___raul___6E565CE8");
+
+                entity.HasOne(d => d.Universe)
+                    .WithMany(p => p.UniverseUser)
+                    .HasForeignKey(d => d.UniverseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Universe___unive__6D6238AF");
             });
         }
     }

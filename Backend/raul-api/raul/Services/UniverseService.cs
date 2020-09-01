@@ -22,5 +22,10 @@ namespace RaulWebApi.Services
             return _universeRepository.getUniverseById(id);
         }
 
+        public List<Universe> getUniverseList (string username)
+        {
+            return _universeRepository.getUniverseList(username);
+        }
+
     }
 }

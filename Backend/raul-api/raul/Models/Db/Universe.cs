@@ -10,6 +10,7 @@ namespace raul.Models.Db
             Age = new HashSet<Age>();
             Competition = new HashSet<Competition>();
             Pot = new HashSet<Pot>();
+            UniverseUser = new HashSet<UniverseUser>();
         }
 
         public int Id { get; set; }
@@ -19,5 +20,6 @@ namespace raul.Models.Db
         public ICollection<Age> Age { get; set; }
         public ICollection<Competition> Competition { get; set; }
         public ICollection<Pot> Pot { get; set; }
+        public ICollection<UniverseUser> UniverseUser { get; set; }
     }
 }

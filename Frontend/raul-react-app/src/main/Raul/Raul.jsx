@@ -14,6 +14,18 @@ const universe = {
     creationDate: null
 }
 
+const age = {
+    age: 1,
+    universeId: 1,
+    ballonDeOrWinnerUsername: ""
+}
+
+const season = {
+    seasonNumber: 1,
+    age: 1,
+    universeId: 1,
+}
+
 const competition = {
     universeId: null,
     comptName: "League",
@@ -33,8 +45,10 @@ export default class Raul extends Component {
         super(props)
         
         this.state = {
-            universe: props.universe,
             user: props.user,
+            universe: props.universe,
+            age: age,
+            season: season,
             competition: competition,
             bannerWord: bannerWord,
         }
@@ -55,7 +69,6 @@ export default class Raul extends Component {
                 <Header user={this.state.user} universe={this.state.universe}/>
                 <Banner bannerWord={this.state.bannerWord}/>
                 <RaulRoutes setBanner={this.setBanner} user={this.state.user} universe={this.state.universe}/>
-                We are at: Raul
             </div>
         )
     }

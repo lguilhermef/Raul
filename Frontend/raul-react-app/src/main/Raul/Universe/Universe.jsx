@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Universe.css'
 import { Link } from 'react-router-dom'
 
-export default props => 
-    <div>
-        Universe
-        <Link to="/age">
-            <button className="oldBtn">age</button>
-        </Link>
-    </div>
+const bannerWord = "Universe";
+
+export default class Universe extends Component {
+
+    constructor(props) {
+        super(props)
+        
+    }
+
+    componentDidMount () {
+        this.props.setBanner(bannerWord);
+    }
+
+    render () {
+        return (
+            <div>
+                T
+            </div>
+        )
+    }
+}

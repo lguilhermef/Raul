@@ -13,6 +13,7 @@ namespace raul.Models.Db
             GameAwayRaulUUsernameNavigation = new HashSet<Game>();
             GameHomeRaulUUsernameNavigation = new HashSet<Game>();
             Season = new HashSet<Season>();
+            UniverseUser = new HashSet<UniverseUser>();
         }
 
         public string Username { get; set; }
@@ -36,5 +37,6 @@ namespace raul.Models.Db
         public ICollection<Game> GameAwayRaulUUsernameNavigation { get; set; }
         public ICollection<Game> GameHomeRaulUUsernameNavigation { get; set; }
         public ICollection<Season> Season { get; set; }
+        public ICollection<UniverseUser> UniverseUser { get; set; }
     }
 }

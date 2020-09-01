@@ -19,5 +19,15 @@ namespace raul.Models.DAL
         {
             return dbContext.Universe.FirstOrDefault(u => u.Id == id);
         }
+
+        public List<Universe> getUniverseList (string username)
+        {
+            List<Universe> universeList = new List<Universe>();
+
+            dbContext.UniverseUser.Where(uu => uu.RaulUsername == username).ToList()
+                .ForEach(uu => universeList.Add(getUniverseById(uu.UniverseId)));
+
+            return universeList;
+        }
     }
 }

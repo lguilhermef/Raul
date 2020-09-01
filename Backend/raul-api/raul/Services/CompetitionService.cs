@@ -41,7 +41,7 @@ namespace raul.Services
             return _gameRepository.getCompetitionGames(universeId, competitionName, currentCompetition.Edition);
         }
 
-        public List<Game> generateCalendar (Competition competition)
+        public List<Game> generateCalendar (int universeId, string competitionName)
         {
             //Generate a new Competition of the same type
             //Generate a calendar for that competition type
