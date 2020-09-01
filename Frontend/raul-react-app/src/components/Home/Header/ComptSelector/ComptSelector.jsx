@@ -33,7 +33,7 @@ export default class ComptSelector extends Component {
     }
 
     handleChange (event) {
-        this.props.setCompetitionName(event.target.value)
+        this.props.setCompetition(event.target.value)
     }
 
     rComptOptions () {

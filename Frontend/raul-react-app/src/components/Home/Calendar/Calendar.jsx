@@ -5,7 +5,6 @@ import axios from 'axios'
 
 const apiCalendar = "https://localhost:44384/api/competition/calendar";
 
-
 export default class Calendar extends Component {
 
     constructor(props) {
@@ -33,7 +32,7 @@ export default class Calendar extends Component {
             }
           }).then(resp => {
               this.setState({gameList: resp.data})
-          })
+        })
     }
 
     renderGames () {
@@ -58,10 +57,10 @@ export default class Calendar extends Component {
     render () {
         return (
             <div className="calendarBody">
-                <p>User: {this.state.user.username} - Universe: {this.state.universe.id}</p>
                 <div className="calendar">
                     {this.renderGames()}
                 </div>
+            <button>Play New {this.state.competitionName}</button>
             </div>
         )
     }

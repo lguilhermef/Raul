@@ -1,0 +1,13 @@
+.comptState {
+    text-align: left;
+    margin-left: 15%;
+    max-width: 70%;
+    background-color: rgba(221, 191, 125, 0.08);
+    border-radius: 15px;
+    margin-bottom: 2.5vh;
+    transition: 0.3s;
+}
+
+.comptState:hover {
+    background-color: rgba(68, 157, 173, 0.205);
+}

@@ -41,7 +41,7 @@
 
 .playedGame {
     color: rgb(111, 195, 235);
-    background-color: rgba(221, 191, 125, 0.08);;
+    background-color: rgba(221, 191, 125, 0.08);
     transition: 0.3s;
 }
 

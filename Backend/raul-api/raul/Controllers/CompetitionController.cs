@@ -63,5 +63,16 @@ namespace RaulWebApi.Controllers
             
             return Ok(calendarTest);
         }
+
+        [HttpPost("generateCalendar")]
+        public IActionResult generateCalendar ([FromBody] JObject jsonData)
+        {
+            dynamic json = jsonData;
+            int universeId = json.universeId;
+            string competitionName = json.competitionName;
+
+            List<Game> newCalendar = competitionService.generateCalendar(universeId ,competitionName);
+            return Ok(newCalendar);
+        }
     }
 }
