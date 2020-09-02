@@ -15,9 +15,11 @@ namespace raul.Models.DAL
             this.dbContext = new RaulDbContext();
         }
 
-        public Universe getUniverseById (int id)
+        public Universe getUniverseWithoutNav (int id)
         {
-            return dbContext.Universe.FirstOrDefault(u => u.Id == id);
+            Universe universe = dbContext.Universe.FirstOrDefault(u => u.Id == id);
+            universe.UniverseUser = null;
+            return universe;
         }
 
         public List<Universe> getUniverseList (string username)
@@ -25,7 +27,7 @@ namespace raul.Models.DAL
             List<Universe> universeList = new List<Universe>();
 
             dbContext.UniverseUser.Where(uu => uu.RaulUsername == username).ToList()
-                .ForEach(uu => universeList.Add(getUniverseById(uu.UniverseId)));
+                .ForEach(uu => universeList.Add(getUniverseWithoutNav(uu.UniverseId)));
 
             return universeList;
         }
