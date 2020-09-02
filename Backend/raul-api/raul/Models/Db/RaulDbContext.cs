@@ -421,6 +421,11 @@ namespace raul.Models.Db
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
+                entity.Property(e => e.Alias)
+                    .IsRequired()
+                    .HasColumnName("alias")
+                    .HasMaxLength(100);
+
                 entity.Property(e => e.CreationDate)
                     .HasColumnName("creation_date")
                     .HasColumnType("date");

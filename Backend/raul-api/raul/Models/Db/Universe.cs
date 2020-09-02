@@ -16,6 +16,7 @@ namespace raul.Models.Db
         public int Id { get; set; }
         public string History { get; set; }
         public DateTime? CreationDate { get; set; }
+        public string Alias { get; set; }
 
         public ICollection<Age> Age { get; set; }
         public ICollection<Competition> Competition { get; set; }
