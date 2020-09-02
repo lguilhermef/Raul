@@ -9,7 +9,7 @@ import { Component } from 'react'
 const apiNewestCompt = "https://localhost:44384/api/competition/getNewestCompetition"
 
 const universe = {
-    id: 1,
+    id: 0,
     history: "",
     creationDate: null
 }
@@ -46,7 +46,7 @@ export default class Raul extends Component {
         
         this.state = {
             user: props.user,
-            universe: props.universe,
+            universe: universe,
             age: age,
             season: season,
             competition: competition,
@@ -54,11 +54,22 @@ export default class Raul extends Component {
         }
         
         this.setBanner = this.setBanner.bind(this);
+        this.setUniverse = this.setUniverse.bind(this);
     }
 
     setBanner (bannerWord) {
         if (this.state.bannerWord != bannerWord) {
-            this.setState({bannerWord: bannerWord})
+            this.setState({bannerWord: bannerWord});
+        }
+    }
+
+    setUniverse (universe) {
+
+        console.log(universe.alias)
+
+        if (this.state.universe.id != universe.id) {
+            console.log("OIIIIA " + universe.id)
+            this.setState({universe: universe});
         }
     }
 
@@ -68,7 +79,7 @@ export default class Raul extends Component {
             <div className="raul">
                 <Header user={this.state.user} universe={this.state.universe}/>
                 <Banner bannerWord={this.state.bannerWord}/>
-                <RaulRoutes setBanner={this.setBanner} user={this.state.user} universe={this.state.universe}/>
+                <RaulRoutes setBanner={this.setBanner} setUniverse={this.setUniverse} user={this.state.user} universe={this.state.universe}/>
             </div>
         )
     }

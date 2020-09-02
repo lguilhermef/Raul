@@ -9,7 +9,10 @@ export default class Universe extends Component {
 
     constructor(props) {
         super(props)
-        
+
+        this.state = {
+            universe: props.universe
+        }
     }
 
     componentDidMount () {
@@ -18,8 +21,12 @@ export default class Universe extends Component {
 
     render () {
         return (
-            <div>
-                <UniverseSelector universe={this.props.universe} user={this.props.user}/>
+            <div className="universe">
+                <UniverseSelector setUniverse={this.props.setUniverse} user={this.props.user} universe={this.props.universe}/>
+                <Link to="/season">
+                    <button className="oldBtn"  onClick={ () => console.log(this.state.universe.alias + "LOOOOL")}>Enter</button>
+                </Link>
+                <button className="oldBtn"  onClick={ () => console.log(this.state.universe.id + "TEST")}>Test</button>
             </div>
         )
     }

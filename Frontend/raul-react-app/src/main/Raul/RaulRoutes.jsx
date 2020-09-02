@@ -9,7 +9,7 @@ import Competition from './Competition/Competition'
 export default props => 
     <Switch>
         <Route path="/universe" component={() => 
-            <Universe setBanner={props.setBanner} universe={props.universe} user={props.user}/>}/>
+            <Universe setUniverse={props.setUniverse} setBanner={props.setBanner} universe={props.universe} user={props.user}/>}/>
 
         <Route path="/age" component={() => <Age setBanner={props.setBanner}/>}/>
 

@@ -16,7 +16,8 @@ export default class UniverseSelector extends Component {
             universeLst: []
         }
 
-        this.rUniverseOpts = this.rUniverseOpts.bind(this);
+        this.rUniverseSelector = this.rUniverseSelector.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount () {
@@ -32,10 +33,20 @@ export default class UniverseSelector extends Component {
           })
     }
 
-    rUniverseOpts () {
+    handleChange (event) {
+
+        let universe = this.state.universeLst.find(u => u.id == event.target.value);
+        
+        if (universe) {
+            this.props.setUniverse(universe)
+        }
+    }
+
+    rUniverseSelector () {
         
         return (
-        <select name="competitions" id="competitions" value={this.state.currentCompetiton} onChange={e => this.handleChange(e)}>
+        <select name="universes" id="universes" onChange={e => this.handleChange(e)} value={this.state.universe.id}>
+            <option value={0} disabled={true}>Select Universe</option>
             {this.rComptOptionsSelectorOpts()}
         </select>
         )
@@ -43,15 +54,15 @@ export default class UniverseSelector extends Component {
 
     rComptOptionsSelectorOpts () {
         let key = 1;
-        return this.state.universeLst.map((g) =>
-            <option key={key++} value={g.id}>{g.id}</option>
+        return this.state.universeLst.map((u) =>
+            <option key={key++} value={u.id}>{u.alias}</option>
         )
     }
 
     render () {
         return (
-            <div>
-                {this.rUniverseOpts()}
+            <div className="uselector">
+                {this.rUniverseSelector()}
             </div>
         )
     }

@@ -9,3 +9,5 @@ calculus about what each player needs, how far away they are from records (if it
 
 Once the MVP is working properly, hooks should be learned and a tick option should be used to allow a modern presentation too.
 Section about the project, Raul's history and story, etc.
+
+Create a DTO layer urgently 
