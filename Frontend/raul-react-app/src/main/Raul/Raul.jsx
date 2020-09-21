@@ -64,11 +64,7 @@ export default class Raul extends Component {
     }
 
     setUniverse (universe) {
-
-        console.log(universe.alias)
-
         if (this.state.universe.id != universe.id) {
-            console.log("OIIIIA " + universe.id)
             this.setState({universe: universe});
         }
     }

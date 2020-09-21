@@ -45,8 +45,8 @@ export default class UniverseSelector extends Component {
     rUniverseSelector () {
         
         return (
-        <select name="universes" id="universes" onChange={e => this.handleChange(e)} value={this.state.universe.id}>
-            <option value={0} disabled={true}>Select Universe</option>
+        <select className="uselector" name="universes" id="universes" onChange={e => this.handleChange(e)} value={this.state.universe.id}>
+            <option value={0} disabled={true}>Select a Universe</option>
             {this.rComptOptionsSelectorOpts()}
         </select>
         )
@@ -61,9 +61,9 @@ export default class UniverseSelector extends Component {
 
     render () {
         return (
-            <div className="uselector">
+            <React.Fragment>
                 {this.rUniverseSelector()}
-            </div>
+            </React.Fragment>
         )
     }
 }
