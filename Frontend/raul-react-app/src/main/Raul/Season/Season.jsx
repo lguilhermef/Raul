@@ -2,6 +2,7 @@ import React from 'react'
 import './Season.css'
 import { Link } from 'react-router-dom'
 import { Component } from 'react'
+import Carrousel from '../../../components/Templates/Carrousel/Carrousel'
 
 const bannerWord = "Season";
 
@@ -19,13 +20,7 @@ export default class Season extends Component {
 
         return (
             <div>
-                Season
-                <Link to="/age">
-                    <button className="oldBtn">age</button>
-                </Link>
-                <Link to="/competition">
-                    <button className="oldBtn">competition</button>
-                </Link>
+                <Carrousel/>
             </div>
         )
     }

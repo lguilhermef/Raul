@@ -1,0 +1,43 @@
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    height: 400px;
+    padding-top: 15px;
+}
+
+.cola {
+    color: white;
+    padding-top: 200px;
+    height: 400px;
+    text-align: center;
+}
+
+.colb {
+    background-color: rgba(93, 207, 223, 0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.colc {
+    padding-top: 200px;
+    height: 400px;
+    text-align: center;
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 12px;
+}
+  
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+  
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+

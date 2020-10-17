@@ -9,7 +9,7 @@ import { Component } from 'react'
 const apiNewestCompt = "https://localhost:44384/api/competition/getNewestCompetition"
 
 const universe = {
-    id: 0,
+    id: 1,
     history: "",
     creationDate: null
 }
