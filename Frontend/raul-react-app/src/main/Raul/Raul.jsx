@@ -55,6 +55,7 @@ export default class Raul extends Component {
         
         this.setBanner = this.setBanner.bind(this);
         this.setUniverse = this.setUniverse.bind(this);
+        this.setCompetition = this.setCompetition.bind(this);
     }
 
     setBanner (bannerWord) {
@@ -69,13 +70,20 @@ export default class Raul extends Component {
         }
     }
 
+    setCompetition (competition) {
+        if (this.state.competition.comptName != competition.comptName) {
+            this.setState({competition: competition});
+        }
+    }
+
     render () {
 
         return (
             <div className="raul">
-                <Header user={this.state.user} universe={this.state.universe}/>
+                <Header user={this.state.user} setCompetition={this.setCompetition} universe={this.state.universe}/>
                 <Banner bannerWord={this.state.bannerWord}/>
-                <RaulRoutes setBanner={this.setBanner} setUniverse={this.setUniverse} user={this.state.user} universe={this.state.universe}/>
+                <RaulRoutes setBanner={this.setBanner} setUniverse={this.setUniverse} user={this.state.user} universe={this.state.universe}
+                currCompetition={this.state.competition}/>
             </div>
         )
     }

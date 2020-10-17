@@ -7,7 +7,7 @@ import Login from "./Auth/Login/Login"
 import Home from "../components/Home/Home"
 import Raul from './Raul/Raul'
 
-let isLoggedIn = false;
+let isLoggedIn = true;
 
 const universe = {
     id: 1,

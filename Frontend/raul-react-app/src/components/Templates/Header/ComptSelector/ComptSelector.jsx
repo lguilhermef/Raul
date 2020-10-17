@@ -17,10 +17,24 @@ export default class ComptSelector extends Component {
         }
 
         this.rComptOptions = this.rComptOptions.bind(this);
+        this.fetchData = this.fetchData.bind(this);
     }
 
     componentDidMount () {
 
+        console.log("IIIT MOUNTED " + this.state.universe.id)
+        this.fetchData();
+        this.rComptOptions();
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (this.state.universe.id != newProps.universe.id || this.state.comptList != newProps.comptList) {
+            this.setState({universe: newProps.universe});
+            this.fetchData();
+        }
+    }
+
+    fetchData () {
         axios({
             method: 'post',
             url: apiComptLstURL,
@@ -28,12 +42,13 @@ export default class ComptSelector extends Component {
                 id: this.state.universe.id,
             }
           }).then(resp => {
-              this.setState({comptList: resp.data})
+              this.setState({comptList: resp.data});
           })
     }
 
     handleChange (event) {
-        this.props.setCompetition(event.target.value)
+        let compt = this.state.comptList.find(compt => compt.comptName == event.target.value);
+        this.props.setCompetition(compt);
     }
 
     rComptOptions () {

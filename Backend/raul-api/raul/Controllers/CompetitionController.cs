@@ -54,7 +54,7 @@ namespace RaulWebApi.Controllers
         [HttpPost("calendar")]
         public IActionResult getCalendar ([FromBody] JObject jsonData)
         {
-            dynamic json = jsonData;
+           dynamic json = jsonData;
             int universeId = json.universeId;
             string competitionName = json.competitionName;
             //TODO: Create a layer to allow declaring postedData type
