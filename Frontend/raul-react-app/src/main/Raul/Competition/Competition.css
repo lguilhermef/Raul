@@ -1,0 +1,12 @@
+.calendarBody {
+
+    height: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.calendar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 500px;
+}

@@ -20,7 +20,9 @@ export default class Season extends Component {
 
         return (
             <div>
-                <Carrousel/>
+                <Carrousel content={"Season"} 
+                leftArrowLink={"/age"} leftArrowTitle={"Age"}
+                rightArrowLink={"competition"} rightArrowTitle={"Competition"}/>
             </div>
         )
     }

@@ -49,6 +49,7 @@ export default class ComptSelector extends Component {
     handleChange (event) {
         let compt = this.state.comptList.find(compt => compt.comptName == event.target.value);
         this.props.setCompetition(compt);
+        this.props.setBanner(compt.comptName);
     }
 
     rComptOptions () {

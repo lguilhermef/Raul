@@ -7,13 +7,12 @@ import ComptSelector from './ComptSelector/ComptSelector'
 export default props =>
     <div className="header">
         Welcome home, ## <strong>{props.user.username}</strong> ## 
-        <ComptSelector universe={props.universe} setCompetition={props.setCompetition} className="compts"/>
-        <Link to="/calendar">
-            <button className="oldBtn">Calendar</button>
-        </Link>
-        <Link to="/nextgame">
-            <button className="oldBtn">Next Game</button>
-        </Link>
+        <ComptSelector universe={props.universe} setCompetition={props.setCompetition} setBanner={props.setBanner} className="compts"/>
+
+        <button className="oldBtn" onClick={() => props.setPressedBtn("calendar")}>Calendar</button>
+
+        <button className="oldBtn" onClick={() => props.setPressedBtn("nextGame")}>Next Game</button>
+
         <Link to="/classification">
             <button className="oldBtn">Classification</button>
         </Link>

@@ -6,15 +6,18 @@ export default props =>
 
 <div className="gridContainer">
 
-  <div className="cola">
-        <Link to="/age">
-          <i className="arrow left"></i>
-        </Link>
-    </div>
-  <div className="colb">Season</div>
-  <div className="colc">
-      <Link to="/competition">
-        <i className="arrow right"></i>
-      </Link>
+  <div className="lateralCol">
+    <Link to={props.leftArrowLink}>
+      <i className="arrow left" title={props.leftArrowTitle}></i>
+    </Link>
   </div>
+
+  <div className="content">{props.content}</div>
+
+  <div className="lateralCol">
+    <Link to={props.rightArrowLink}>
+      <i className="arrow right" title={props.rightArrowTitle}></i>
+    </Link>
+  </div>
+
 </div>
