@@ -1,4 +1,5 @@
-﻿using raul.Models.Db;
+﻿using raul.Models.DAL;
+using raul.Models.Db;
 using raul.Services;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,22 @@ namespace RaulWebApi.Services
 {
     public partial class GameService : GenericService
     {
+        private GameRepository _gameRepository;
 
-        public Game getNextGame (Competition competition)
+        public GameService ()
         {
+            this._gameRepository = new GameRepository();
+        }
+
+       // public Game getNextGame (Competition competition)
+        //{
             //Game nextGame = this.dbContext.Game.FirstOrDefault(c => c.CompetitionName == competition.ComptName && c.IsOver == true);
-            return new Game();
+       //     return new Game();
+       // }
+
+        public Game getNextGame(int universeId, string competitionName, int competitionEdition)
+        {
+            return _gameRepository.getNextGame(universeId, competitionName, competitionEdition);
         }
 
         public void persistGame (Game game)

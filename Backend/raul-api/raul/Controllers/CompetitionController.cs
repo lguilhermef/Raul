@@ -57,7 +57,7 @@ namespace RaulWebApi.Controllers
            dynamic json = jsonData;
             int universeId = json.universeId;
             string competitionName = json.competitionName;
-            //TODO: Create a layer to allow declaring postedData type
+            //TODO: Create a layer to allow declaring postedData type and a CompetitionEdition is needed here!!
             
             List<Game> calendarTest = competitionService.getCalendar(universeId, competitionName);
             

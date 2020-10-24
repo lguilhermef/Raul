@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using raul.Models.Db;
 using RaulWebApi.Services;
 using System;
@@ -21,11 +22,18 @@ namespace RaulWebApi.Controllers
             this.gameService = new GameService();
         }
 
-        [HttpGet("nextGame")]
-        public IActionResult getNextGame ()
+        [HttpPost("nextGame")]
+        public IActionResult getNextGame([FromBody] JObject competitionIdentifier)
         {
-            Competition competition = new Competition();
-            return Ok(gameService.getNextGame(competition));
+            dynamic json = competitionIdentifier;
+            int universeId = json.universeId;
+            string competitionName = json.competitionName;
+            int competitionEdition = json.competitionEdition;
+
+            //It would be interesting to pass a competitionIdentifier as an argument instead of several different args. Each entity has a Primary Key that could be represented this way.
+            Game nextGame = gameService.getNextGame(universeId, competitionName, competitionEdition);
+
+            return Ok(nextGame);
         }
 
         [HttpGet("currentGameList")]

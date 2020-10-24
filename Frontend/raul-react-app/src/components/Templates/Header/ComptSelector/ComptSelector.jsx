@@ -22,7 +22,6 @@ export default class ComptSelector extends Component {
 
     componentDidMount () {
 
-        console.log("IIIT MOUNTED " + this.state.universe.id)
         this.fetchData();
         this.rComptOptions();
     }
@@ -43,6 +42,7 @@ export default class ComptSelector extends Component {
             }
           }).then(resp => {
               this.setState({comptList: resp.data});
+              //this.props.setCompetitionLst(resp.data);
           })
     }
 

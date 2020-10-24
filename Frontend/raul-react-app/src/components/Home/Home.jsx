@@ -4,7 +4,6 @@ import './Home.css'
 
 import axios from 'axios'
 
-import Header from './Header/Header'
 import Banner from './Banner/Banner'
 import Routes from './Routes'
 import CompetitionState from './CompetitionState/CompetitionState'
@@ -53,7 +52,6 @@ export default class Home extends Component {
     render () {
         return (
             <div className="dashboard">
-                <Header universe={this.state.universe} className="header" setCompetition={this.setCompetition} user={this.props.user}/>
                 <Banner currCompetition={this.state.competition}/>
                 <CompetitionState competition={this.state.competition}/>
                 <Routes currCompetition={this.state.competition} user={this.props.user} universe={this.props.universe}/>

@@ -4,17 +4,7 @@ import './Competition.css'
 import { Link } from 'react-router-dom'
 import Carrousel from '../../../components/Templates/Carrousel/Carrousel'
 import Calendar from '../../../components/Home/Calendar/Calendar'
-
-const competitione = {
-    universeId: 1,
-    comptName: "League",
-    alias: "",
-    history: "",
-    rules: "",
-    winnerId: null,
-    edition: null,
-    isOfficialCompetition: null
-}
+import NextGame from '../../../components/NextGame/NextGame'
 
 const pressedBtn = "";
 
@@ -22,7 +12,7 @@ export default class Competition extends Component {
 
     constructor(props) {
         super(props)
-        console.log("CONSTRRUTOOORE " + props.pressedBtn)
+
         this.state = {
             user: props.user,
             universe: props.universe,
@@ -39,7 +29,6 @@ export default class Competition extends Component {
 
     rContent() {
         
-        console.log("hjehe" + this.state.pressedBtn);
         switch (this.state.pressedBtn) {
             case "calendar":
                 return this.rCalendar();
@@ -57,9 +46,7 @@ export default class Competition extends Component {
 
     rNextGame() {
         return (
-          <div>
-              PRÓXIMO JOGO - CRIAR COMPONENTE
-          </div>  
+            <NextGame currCompetition={this.state.competition} universe={this.state.universe}/>
         );
     }
 

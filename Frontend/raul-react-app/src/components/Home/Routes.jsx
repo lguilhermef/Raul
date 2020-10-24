@@ -2,7 +2,6 @@ import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 
 import Calendar from './Calendar/Calendar'
-import NextGame from './NextGame/NextGame'
 import Classification from './Classification/Classification'
 
 export default props => 
@@ -10,7 +9,6 @@ export default props =>
         <Route path="/calendar" component={() =>
              <Calendar currCompetition={props.currCompetition} user={props.user} universe={props.universe}/>}/>
              
-        <Route path="/nextgame" component={NextGame}/>
         <Route path="/classification" component={Classification}/>
         <Redirect from='*' to='/calendar' />
     </Switch>

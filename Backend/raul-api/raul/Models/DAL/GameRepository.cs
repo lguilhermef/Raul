@@ -20,5 +20,11 @@ namespace raul.Models.DAL
                 .Where(g => g.UniverseId == universeId && g.CompetitionName == competitionName && g.CompetitionEdition == competitionEdition)
                 .OrderBy(g => g.Id).ToList();
         }
+
+        //Considering ObjectIdentifiers, a Game could be stored with just one column called Identifier that would result from concatenating universeId, comptName and comptEdition: 3League4;
+        public Game getNextGame(int universeId, string competitionName, int competitionEdition)
+        {
+            return dbContext.Game.Where(g => g.UniverseId == universeId && competitionName == g.CompetitionName && g.CompetitionEdition == competitionEdition && !g.IsOver).FirstOrDefault();
+        }
     }
 }
