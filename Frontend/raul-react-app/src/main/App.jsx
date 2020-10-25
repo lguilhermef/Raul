@@ -6,7 +6,7 @@ import { HashRouter } from 'react-router-dom'
 import Login from "./Auth/Login/Login"
 import Raul from './Raul/Raul'
 
-let isLoggedIn = true;
+let isLoggedIn = false;
 
 const universe = {
     id: 1,

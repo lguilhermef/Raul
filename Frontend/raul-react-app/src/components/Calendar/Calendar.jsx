@@ -2,6 +2,7 @@ import React from 'react'
 import './Calendar.css'
 import { Component } from 'react'
 import axios from 'axios'
+import Card from '../../components/Templates/Card/Card'
 
 const apiCalendar = "https://localhost:44384/api/competition/calendar";
 
@@ -19,6 +20,7 @@ export default class Calendar extends Component {
 
         this.renderGames = this.renderGames.bind(this);
         this.getWinner = this.getWinner.bind(this);
+        this.rCalendar = this.rCalendar.bind(this);
     }
 
     componentDidMount () {
@@ -54,14 +56,19 @@ export default class Calendar extends Component {
         return game.homeScore > game.awayScore ? "Winner: " + game.homeRaulUUsername : "Winner: " + game.awayRaulUUsername;
     }
 
+    rCalendar () {
+        return (
+            <div className="card" style={{width: "40vw", textAlign: "left"}}>
+                {this.renderGames()}
+            </div>                
+        )
+    }
+
     render () {
         return (
-            <div className="container">
-                <div className="calendar">
-                    {this.renderGames()}
-                </div>
-                <button>Play New {this.state.competitionName}</button>
-            </div>
+            [
+            <Card renderContent={this.rCalendar}></Card>,
+            <button className="oldBtn">New {this.state.competitionName}</button>]
         )
     }
 }

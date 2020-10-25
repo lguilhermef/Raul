@@ -21,25 +21,43 @@
 }
 
 .arrow {
-    border: solid white;
+    border: solid rgba(231, 185, 99, 0.925);
     border-width: 0 4px 4px 0;
     display: inline-block;
     padding: 12px;
+    transition: .5s ease-in-out;
 }
 
 .arrow:hover{
-    border: solid rgb(133, 124, 78);
-    border-width: 0 5px 5px 0;
+    border: solid rgb(241, 203, 132);
+    border-width: 0 4px 4px 0;
     display: inline-block;
     padding: 12px;
 }
   
 .right {
     transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+}
+
+.right:hover {
+    transform: rotate(-45deg) scale(1.2);
 }
   
 .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
+}
+
+.left:hover{
+    transform: rotate(135deg) scale(1.2);
+}
+
+span {
+    color:black;
+    margin-left: 15px;
+    transition: .5s ease-in-out;
+}
+
+span:hover {
+    color: rgb(241, 203, 132);
 }

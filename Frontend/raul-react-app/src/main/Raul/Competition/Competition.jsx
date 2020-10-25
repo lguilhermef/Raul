@@ -3,7 +3,7 @@ import { Component } from 'react'
 import './Competition.css'
 import { Link } from 'react-router-dom'
 import Carrousel from '../../../components/Templates/Carrousel/Carrousel'
-import Calendar from '../../../components/Home/Calendar/Calendar'
+import Calendar from '../../../components/Calendar/Calendar'
 import NextGame from '../../../components/NextGame/NextGame'
 
 const pressedBtn = "";

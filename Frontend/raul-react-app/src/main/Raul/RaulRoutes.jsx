@@ -5,7 +5,7 @@ import Universe from './Universe/Universe'
 import Age from './Age/Age'
 import Season from './Season/Season'
 import Competition from './Competition/Competition'
-import Calendar from '../../components/Home/Calendar/Calendar'
+import Calendar from '../../components/Calendar/Calendar'
 
 const competitione = {
     universeId: 1,

@@ -54,7 +54,7 @@ export default class NextGame extends Component {
     render () {
         return (
             [
-            <Card renderContent={this.test}></Card>,
+            <Card renderContent={this.test}/>,
             <Card renderContent={this.test}></Card>,
 
             <Card renderContent={this.test}></Card>,
