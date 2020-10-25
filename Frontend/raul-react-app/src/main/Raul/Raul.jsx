@@ -73,7 +73,7 @@ export default class Raul extends Component {
     }
 
     setCompetition (competition) {
-        if (this.state.competition.comptName != competition.comptName) {
+        if (this.state.competition.comptName != competition.comptName || this.state.competition.edition != competition.edition) {
             this.setState({competition: competition});
         }
     }
@@ -86,7 +86,8 @@ export default class Raul extends Component {
 
         return (
             <div className="raul">
-                <Header user={this.state.user} universe={this.state.universe} setCompetition={this.setCompetition} setBanner={this.setBanner} setPressedBtn={this.setPressedBtn}/>
+                <Header user={this.state.user} universe={this.state.universe} setCompetition={this.setCompetition} setBanner={this.setBanner} setPressedBtn={this.setPressedBtn}
+                    currCompetition={this.state.competition}/>
                 <Banner bannerWord={this.state.bannerWord}/>
                 <RaulRoutes setBanner={this.setBanner} setUniverse={this.setUniverse} user={this.state.user} universe={this.state.universe}
                 currCompetition={this.state.competition} pressedBtn={this.state.pressedBtn}/>

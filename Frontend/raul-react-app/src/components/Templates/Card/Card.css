@@ -1,0 +1,29 @@
+.cardContainer {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.card {
+    box-shadow: -5px 5px 8px 0 rgba(204, 185, 103, 0.096);
+    display: block;
+    background-color: rgba(93, 208, 223, 0.048);
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform .6s ease-in-out, box-shadow .6s ease-in-out;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    
+    border: 1px solid rgba(102, 108, 112, 0.37);
+    border-radius: 10px;
+    overflow-y: auto;
+    width: 20vw;
+
+    max-height: 45vh;
+    max-width: 55vw;
+}
+
+.card:hover {
+    position: relative;
+    box-shadow: -8px 8px 10px 0 rgba(204, 185, 103, 0.096);
+    transform: translate(0px, -3px);
+}

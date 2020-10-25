@@ -1,41 +1,30 @@
-.calendarBody {
+.container {
     background-color: rgba(93, 208, 223, 0);
-    text-align: center;
-    border-radius: 20px;
 }
 
 .calendar {
-    background-color: rgba(93, 208, 223, 0);
-    width: 70%;
+    background-color: rgba(93, 208, 223, 0.048);
+    width: 55%;
     margin-left: auto;
     margin-right: auto;
     overflow-y: auto;
     max-height: 45vh;
     text-align: left;
+    border-radius: 10px;
+    box-shadow: -8px 8px 10px 0 rgba(204, 185, 103, 0.096);
+    border: 1px solid rgba(102, 108, 112, 0.37);
+    transition: transform .4s ease-in-out, box-shadow .4s;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #d19f53;
-    box-shadow: inset 0 0 4px rgba(231, 185, 99, 0.925);
-    border-radius: 5px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(139, 38, 38);
-    border-radius: 5px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(184, 59, 59);
-  }
+.calendar:hover {
+  position: relative;
+  box-shadow: -10px 10px 10px 0 rgba(204, 185, 103, 0.096);
+  transform: translate(0px, -3px);
+}
+
+strong {
+  background-color: rgba(255, 0, 0, 0);
+}
 
 .gamelist {
     text-align: left;

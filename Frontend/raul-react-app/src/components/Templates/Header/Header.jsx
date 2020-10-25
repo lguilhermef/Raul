@@ -7,7 +7,7 @@ import ComptSelector from './ComptSelector/ComptSelector'
 export default props =>
     <div className="header">
         Welcome home, ## <strong>{props.user.username}</strong> ## 
-        <ComptSelector universe={props.universe} setCompetition={props.setCompetition} setBanner={props.setBanner} className="compts"/>
+        <ComptSelector universe={props.universe} setCompetition={props.setCompetition} setBanner={props.setBanner} currCompetition={props.currCompetition} className="compts"/>
 
         <button className="oldBtn" onClick={() => props.setPressedBtn("calendar")}>Calendar</button>
 

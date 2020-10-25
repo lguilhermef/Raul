@@ -3,12 +3,13 @@
 }
 
 pre {
-    color:rgb(80, 116, 170);
+    color: rgba(231, 185, 99, 0.925);
     transition: 2s;
 }
 
 pre:hover {
-    color:rgb(182, 205, 240);
+    color: rgba(231, 185, 99, 1);
+    text-shadow: 0px 0px 15px rgba(231, 185, 99, 0.65);
     font-size: 14.3px;
 }
 

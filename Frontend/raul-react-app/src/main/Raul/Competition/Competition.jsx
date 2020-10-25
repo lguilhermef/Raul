@@ -29,6 +29,11 @@ export default class Competition extends Component {
 
     rContent() {
         
+        //TODO: Erase if?
+        if (this.state.competition?.edition == null) {
+           return;
+        }
+
         switch (this.state.pressedBtn) {
             case "calendar":
                 return this.rCalendar();
@@ -46,13 +51,13 @@ export default class Competition extends Component {
 
     rNextGame() {
         return (
-            <NextGame currCompetition={this.state.competition} universe={this.state.universe}/>
+            <NextGame universe={this.state.universe} currCompetition={this.state.competition}/>
         );
     }
 
     rCalendar() {
         return (
-            <Calendar className="tst" universe={this.state.universe} currCompetition={this.state.competition}/>
+            <Calendar universe={this.state.universe} currCompetition={this.state.competition}/>
         );
     }
 

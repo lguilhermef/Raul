@@ -29,7 +29,7 @@ export default class ComptSelector extends Component {
     componentWillReceiveProps(newProps) {
         if (this.state.universe.id != newProps.universe.id || this.state.comptList != newProps.comptList) {
             this.setState({universe: newProps.universe});
-            this.fetchData();
+            //this.fetchData();
         }
     }
 
@@ -42,7 +42,9 @@ export default class ComptSelector extends Component {
             }
           }).then(resp => {
               this.setState({comptList: resp.data});
-              //this.props.setCompetitionLst(resp.data);
+              //TODO: "League" can't be hardcoded and fetching the competitionList should happen once users enter Raúl (after login);
+              let compt = this.state.comptList.find(compt => compt.comptName == "League");
+              this.props.setCompetition(compt);
           })
     }
 

@@ -56,11 +56,11 @@ export default class Calendar extends Component {
 
     render () {
         return (
-            <div className="calendarBody">
+            <div className="container">
                 <div className="calendar">
                     {this.renderGames()}
                 </div>
-            <button>Play New {this.state.competitionName}</button>
+                <button>Play New {this.state.competitionName}</button>
             </div>
         )
     }

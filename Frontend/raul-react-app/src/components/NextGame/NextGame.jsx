@@ -1,6 +1,8 @@
 import React from 'react'
 import { Component } from 'react'
 import './NextGame.css'
+import Card from '../../components/Templates/Card/Card'
+
 import axios from 'axios'
 
 const apiNextGameUrl = "https://localhost:44384/api/game/nextGame"
@@ -9,12 +11,14 @@ export default class NextGame extends Component {
 
     constructor (props) {
         super(props)
-
+        
         this.state = {
             universe: this.props.universe,
             competition: this.props.currCompetition,
             nextGame: null
         }
+        
+        this.test = this.test.bind(this);
     }
 
     componentDidMount() {
@@ -32,13 +36,34 @@ export default class NextGame extends Component {
           })
     }
 
+    test () {
+        return (
+                <div className="card">
+                    Home Team: <span className="team"> {this.state.nextGame?.homeTeam} </span>
+                    <input className="inputField"></input>
+                    Away Team: <span className="team">{this.state.nextGame?.awayTeam} </span>
+                    <input className="inputField"></input>
+                    
+                    <button className="oldBtn">
+                        Save Game
+                    </button>
+                </div>
+        )
+    }
+
     render () {
         return (
-            <div>
-                {this.state.competition.comptName}
+            [
+            <Card renderContent={this.test}></Card>,
+            <Card renderContent={this.test}></Card>,
 
-                {this.state.nextGame?.potName}
-            </div>
+            <Card renderContent={this.test}></Card>,
+
+            <Card renderContent={this.test}></Card>,
+
+
+            <Card renderContent={this.test}></Card>]
+
         )
     }
 }

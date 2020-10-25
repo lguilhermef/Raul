@@ -1,0 +1,37 @@
+.input {
+    box-shadow: -8px 8px 10px 0 rgba(204, 185, 103, 0.096);
+    display: block;
+    background-color: rgba(93, 208, 223, 0.048);
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform .4s ease-in-out, box-shadow .4s;
+    margin-bottom: 20px;
+}
+
+.input:hover {
+    position: relative;
+    box-shadow: -10px 10px 10px 0 rgba(204, 185, 103, 0.096);
+    transform: translate(0px, -3px)
+}
+
+.team {
+    background-color: rgba(93, 208, 223, 0);
+    color: rgb(224, 211, 136);
+}
+
+.inputField {
+    width: 5rem;
+    border-radius: 10px;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    display: block;
+    background-color: rgba(93, 208, 223, 0.048);
+    margin-left: auto;
+    margin-right: auto;
+    transition-duration: .5s;
+    text-align: center;
+}
+
+.inputField:hover {
+    border-color:rgb(224, 211, 136);
+}
