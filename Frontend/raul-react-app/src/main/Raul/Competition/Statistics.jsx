@@ -43,7 +43,7 @@ export default class Statistics extends Component {
     //Played game should actually be repalced by a css element
     tst () {
 
-        let keys = ["Luís", "António"];
+        let keys = Object.keys(this.state.lstUserGoals);
 
         return (
             <div className="card" style={{}}>
