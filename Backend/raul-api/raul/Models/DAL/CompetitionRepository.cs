@@ -14,6 +14,12 @@ namespace raul.Models.DAL
             this.dbContext = new RaulDbContext();
         }
 
+        //TODO: CompetitionIdentifier here
+        public Competition getCompetitionByNameAndEdition(string name, int edition)
+        {
+            return dbContext.Competition.FirstOrDefault(c => c.ComptName == name && c.Edition == edition);
+        }
+
         public Competition getNewestCompetition(int universeId, string competitionName)
         {
             Competition competition = dbContext.Competition.OrderBy(c => c.Edition)

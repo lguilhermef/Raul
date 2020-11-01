@@ -1,5 +1,8 @@
 .cardContainer {
     background-color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Carrousel from '../../../components/Templates/Carrousel/Carrousel'
 import Calendar from '../../../components/Calendar/Calendar'
 import NextGame from '../../../components/NextGame/NextGame'
+import Statistics from './Statistics'
 
 const pressedBtn = "";
 
@@ -56,8 +57,15 @@ export default class Competition extends Component {
     }
 
     rCalendar() {
-        return (
-            <Calendar universe={this.state.universe} currCompetition={this.state.competition}/>
+        return ([
+            //An actual css grid would make absolute sense here, avoiding the need for all that inline style
+            <Calendar universe={this.state.universe} currCompetition={this.state.competition}/>,
+            <div className="container" style={{display: "inline-block", width: "5px"}}></div>,
+            <Statistics universe={this.state.universe} currCompetition={this.state.competition}></Statistics>,
+            <div className="container">
+
+                <button className="oldBtn">New {this.state.competitionName}</button>
+            </div>]
         );
     }
 

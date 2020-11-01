@@ -66,9 +66,8 @@ export default class Calendar extends Component {
 
     render () {
         return (
-            [
-            <Card renderContent={this.rCalendar}></Card>,
-            <button className="oldBtn">New {this.state.competitionName}</button>]
+            
+            <Card renderContent={this.rCalendar}></Card>
         )
     }
 }

@@ -26,12 +26,12 @@
 
 .oldBtn {
     margin-left: 10px;
-    transition: 1s;
+    transition: .5s ease-in-out;
     border-radius: 8px;
+    border: 1px solid rgb(104, 145, 141);
     margin-top: 5px;
     margin-bottom: 5px;
     background-color: rgba(15, 58, 68, 0.733);
-    border: 1px solid rgb(104, 145, 141);
     color: rgb(177, 206, 203);
     height: 1.8rem;
     width: 8rem;
@@ -40,8 +40,56 @@
 .oldBtn:hover {
     background-color: rgba(35, 89, 102, 0.733);
     box-shadow: 0px 3px 15px 0 rgba(204, 185, 103, 0.3);
-    transform: scale(1.05)
+    transform: scale(1.05);
+    border: 1px solid rgb(204, 185, 103, 0.5);
+    color: rgb(204, 185, 103);
 }
+
+.oldBtn:focus{
+    outline: none;
+    box-shadow: 0px 3px 18px 0 rgba(204, 185, 103, 0.3);
+    border: 1px solid rgb(204, 185, 103, 0.5);
+    color: rgb(204, 185, 103);
+    background-color: rgba(35, 89, 102, 0.733);
+}
+
+select {
+    transition: .5s ease-in-out;
+
+    border-radius: 8px;
+    border: 1px solid rgb(104, 145, 141);
+
+    height: 1.8rem;
+    background-color: rgba(15, 58, 68, 0.733);
+}
+
+select:hover {
+    background-color: rgba(35, 89, 102, 0.733);
+    box-shadow: 0px 3px 15px 0 rgba(204, 185, 103, 0.3);
+    border: 1px solid rgb(204, 185, 103, 0.5);
+    color: rgb(204, 185, 103)
+}
+
+select:focus{
+    outline: none;
+}
+
+option {
+    transition: .5s ease-in-out;
+
+    border-radius: 8px;
+    border: 1px solid rgb(104, 145, 141);
+
+    height: 1.8rem;
+    background-color: rgba(15, 58, 68, 0.733);
+}
+
+
+option:checked {
+    background-color: rgb(204, 185, 103);
+    color: #000;
+}
+
 
 /* ### Scrollbar ### */
 ::-webkit-scrollbar {
