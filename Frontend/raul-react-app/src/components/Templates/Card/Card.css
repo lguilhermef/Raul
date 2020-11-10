@@ -5,6 +5,10 @@
     margin-right: auto;
 }
 
+.cardHeader{
+    color: rgb(231, 195, 117);
+}
+
 .card {
     box-shadow: -5px 5px 8px 0 rgba(204, 185, 103, 0.096);
     display: block;

@@ -18,7 +18,8 @@ export default class Competition extends Component {
             user: props.user,
             universe: props.universe,
             competition: props.currCompetition,
-            pressedBtn: props.pressedBtn
+            pressedBtn: props.pressedBtn,
+            calendarComponent: null
         }
 
         this.rCalendar = this.rCalendar.bind(this);
@@ -56,6 +57,8 @@ export default class Competition extends Component {
         );
     }
 
+    //Calendar should be the return of a method and saved on a variable, which would be passed to statistics.
+    //Thus, statistics could make use of Calendar methods. Explore
     rCalendar() {
         return ([
             //An actual css grid would make absolute sense here, avoiding the need for all that inline style

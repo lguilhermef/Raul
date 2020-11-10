@@ -15,7 +15,7 @@ export default class Calendar extends Component {
             user: props.user,
             universe: props.universe,
             competitionName: props.currCompetition.comptName,
-            gameList: []
+            gameList: [],
         }
 
         this.renderGames = this.renderGames.bind(this);
@@ -39,7 +39,7 @@ export default class Calendar extends Component {
 
     renderGames () {
         return this.state.gameList.map(g =>
-            <li title={this.getWinner(g)} className={g.isOver ? "playedGame" : "game"}>Game {g.competitionRound} 
+            <li title={this.getWinner(g)} className={g.isOver ? "playedGame" : "game"} id={g.competitionRound}>Game {g.competitionRound} 
             - {g.potName}: <strong>{g.homeTeam}</strong> {g.homeScore} x {g.awayScore} <strong>{g.awayTeam}</strong></li>
         )
     }
@@ -59,6 +59,7 @@ export default class Calendar extends Component {
     rCalendar () {
         return (
             <div className="card" style={{width: "40vw", textAlign: "left"}}>
+                <h4 className="game" style={{textAlign: "center"}}>Calendar</h4>
                 {this.renderGames()}
             </div>                
         )
@@ -66,7 +67,6 @@ export default class Calendar extends Component {
 
     render () {
         return (
-            
             <Card renderContent={this.rCalendar}></Card>
         )
     }
