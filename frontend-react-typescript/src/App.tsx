@@ -3,15 +3,15 @@ import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 import {Authentication, getCurrentUser} from './Authentication/Authentication'
 import {Dashboard} from './Views/Dashboard/Dashboard'
-import { User } from './Types/Types'
+import { RaulUser } from './Types/Types'
 
 export const App = (): JSX.Element => {
 
-  const [currentUser, setCurrentUser] = useState<User>();
+  const [currentUser, setCurrentUser] = useState<RaulUser>();
 
   useEffect(() => {
 
-    const user: User = getCurrentUser();
+    const user: RaulUser = getCurrentUser();
 
     if (user) {
       setCurrentUser(user);

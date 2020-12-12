@@ -1,0 +1,1 @@
+export enum LocalStorage {GET_USER = "user"};
