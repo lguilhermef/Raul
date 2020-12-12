@@ -34,6 +34,19 @@ namespace raul.Controllers
             return Ok(usernameGoals);
         }
 
+        [HttpPost("competitionPlayerStatistics")]
+        public IActionResult getCompetitionPlayerStatistics([FromBody] JObject postedData)
+        {
+            dynamic json = postedData;
+            int universeId = json.universeId;
+            string competitionName = json.competitionName;
+            int competitionEdition = json.competitionEdition;
+
+            Dictionary<string, int?> usernameWins = this.statisticsService.getComptWinsPerPlayer(universeId, competitionName, competitionEdition);
+
+            return Ok(usernameWins);
+        }
+
 
 
     }

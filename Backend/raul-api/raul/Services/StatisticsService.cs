@@ -47,6 +47,34 @@ namespace raul.Services
 
             return usernameGoals;
         }
-        
+
+        public Dictionary<string, int?> getComptWinsPerPlayer(int universeId, string competitionName, int competitionEdition)
+        {
+            //TODO: Should get the competition Rules and make queries based on that...
+            List<Game> lstGame = this._gameRepository.getCompetitionGames(universeId, competitionName, competitionEdition);
+            Dictionary<string, int?> usernameWins = new Dictionary<string, int?>();
+
+            foreach (Game g in lstGame)
+            {
+
+                int? outValue;
+                //Boilerplate if... make a method ASAP -> User exists? If not, add with 0 wins so far.
+                if (!usernameWins.TryGetValue(g.HomeRaulUUsername, out outValue))
+                {
+                    usernameWins.Add(g.HomeRaulUUsername, 0);
+                }
+
+                if (!usernameWins.TryGetValue(g.AwayRaulUUsername, out outValue))
+                {
+                    usernameWins.Add(g.AwayRaulUUsername, 0);
+                }
+
+                usernameWins[g.HomeRaulUUsername] += g.HomeScore > g.AwayScore ? 1 : 0;
+                usernameWins[g.AwayRaulUUsername] += g.AwayScore > g.HomeScore ? 1 : 0;
+            }
+
+            return usernameWins;
+        }
+
     }
 }
