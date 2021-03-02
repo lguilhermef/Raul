@@ -1,0 +1,13 @@
+CREATE TABLE Age (
+
+	age int NOT NULL,
+	universe_id int NOT NULL,
+	pes_version varchar(100),
+	media_name varchar(100),
+	media_description varchar,
+	ballon_de_or_winner_username varchar (100),
+
+	PRIMARY KEY (age, universe_id),
+	FOREIGN KEY (universe_id) REFERENCES Universe(id),
+	FOREIGN KEY (ballon_de_or_winner_username) REFERENCES RaulUser(username)
+);

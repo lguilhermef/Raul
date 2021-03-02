@@ -1,0 +1,9 @@
+CREATE TABLE Universe_User (
+
+	universe_id int NOT NULL UNIQUE,
+	raul_username varchar (100) NOT NULL,
+
+	PRIMARY KEY (universe_id, raul_username),
+	FOREIGN KEY (universe_id) REFERENCES Universe(id),
+	FOREIGN KEY (raul_username) REFERENCES RaulUser(username)
+);

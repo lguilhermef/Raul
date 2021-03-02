@@ -1,0 +1,11 @@
+CREATE TABLE Team (
+
+	team_name varchar(100),
+	country varchar(50),
+	supporters varchar(100) NOT NULL UNIQUE,
+	initials varchar(10) NOT NULL UNIQUE,
+	is_national_team bit NOT NULL,
+
+	PRIMARY KEY (team_name),
+	FOREIGN KEY (country) REFERENCES Country (country_name),
+);

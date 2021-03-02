@@ -1,0 +1,8 @@
+CREATE TABLE Universe (
+
+	id int GENERATED ALWAYS AS IDENTITY,
+	alias varchar (99),
+	history varchar,
+	creation_date timestamp,
+	PRIMARY KEY (id)
+);

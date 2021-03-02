@@ -1,0 +1,19 @@
+CREATE TABLE RaulUser (
+
+	username varchar(100),
+	password varchar() NOT NULL,
+    rl_fav_team varchar(100),
+    pes_fav_team varchar(100),
+    rival_team varchar(100),
+    media_fav_team varchar(100),
+    media_rival_team varchar(100),
+    fav_player_id int,
+
+    PRIMARY KEY (username),
+    FOREIGN KEY (rl_fav_team) REFERENCES Team(team_name),
+    FOREIGN KEY (pes_fav_team) REFERENCES Team(team_name),
+    FOREIGN KEY (rival_team) REFERENCES Team(team_name),
+    FOREIGN KEY (media_fav_team) REFERENCES Team(team_name),
+    FOREIGN KEY (media_rival_team) REFERENCES Team(team_name),
+    FOREIGN KEY (fav_player_id) REFERENCES Player(id)
+);

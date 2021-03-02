@@ -1,0 +1,9 @@
+CREATE TABLE Player (
+
+	id SERIAL,
+	full_name varchar(100),
+	team_name varchar(100),
+
+    PRIMARY KEY (id),
+	    FOREIGN KEY (team_name) REFERENCES Team (team_name)
+);

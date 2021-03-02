@@ -1,0 +1,14 @@
+CREATE TABLE Season (
+
+	season_number int NOT NULL,
+	age int NOT NULL,
+	universe_id int NOT NULL ,
+	pes_version int NOT NULL,
+	season_history varchar,
+	media_description varchar,
+	player_of_the_year_id varchar (100),
+
+	PRIMARY KEY (season_number, age),
+	FOREIGN KEY (age, universe_id) REFERENCES Age(age, universe_id),
+	FOREIGN KEY (player_of_the_year_id) REFERENCES RaulUser(username)
+);
